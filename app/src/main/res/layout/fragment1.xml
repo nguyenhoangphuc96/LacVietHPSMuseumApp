@@ -1,8 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackgroundGray"
     >
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
-</LinearLayout>
+    <LinearLayout
+        android:id="@+id/layoutDots"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dots_height"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/dots_margin_bottom"
+        android:gravity="center"
+        android:orientation="horizontal"></LinearLayout>
+
+    <LinearLayout
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_edittext_search">
+        <EditText
+
+            android:id="@+id/edtSearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:inputType="text"
+            android:text="Tìm kiếm hiện vật"
+            android:textColor="@color/colorTextSearchBox"
+            android:textAppearance="@style/TextSearchBox"
+            android:drawableLeft="@drawable/ic_search"
+            android:background="@null"
+            />
+    </LinearLayout>
+
+
+
+</RelativeLayout>
