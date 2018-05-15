@@ -27,7 +27,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="1954-1975"
-                android:textAppearance="@style/TextTitleFragment2"
+                android:textAppearance="@style/TextTitleCollection"
                 android:gravity="center"
                 />
         </LinearLayout>
@@ -40,7 +40,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Tiền Việt Nam"
-                android:textAppearance="@style/TextTitleFragment2"
+                android:textAppearance="@style/TextTitleCollection"
                 android:gravity="center"
                 />
 
@@ -54,7 +54,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Văn Hoá Dân Tộc"
-                android:textAppearance="@style/TextTitleFragment2"
+                android:textAppearance="@style/TextTitleCollection"
                 android:gravity="center"
                 />
 

@@ -7,10 +7,12 @@
     <color name="colorBackgroundToolbarBlue">#1C96D4</color>
     <color name="colorBackgroundGray">#F2F2F2</color>
     <color name="colorWhite">#FFFFFF</color>
+    <color name="colorRed">#DC0000</color>
     <color name="colorBlack">#000000</color>
     <color name="colorTextDecriptionGray">#9F9F9F</color>
     <color name="colorTextSelected">#1091D3</color>
     <color name="colorTextSearchBox">#DDDDDD</color>
+
 
     <array name="array_dot_active">
         <item>@color/colorWhite</item>
