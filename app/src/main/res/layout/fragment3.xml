@@ -4,34 +4,86 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-
+    android:weightSum="100"
     >
     <LinearLayout
+        android:layout_weight="87"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
-
+        android:layout_height="match_parent"
         android:orientation="horizontal"
         android:weightSum="100"
-        android:background="@color/colorBackgroundGray">
+        android:background="@drawable/background_color_blue">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="45"
+            android:padding="13dp">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_back"/>
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="10"
+            android:paddingLeft="80dp"
+            android:paddingRight="80dp"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:weightSum="100"
+                android:gravity="center">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    >
 
+                    <TextView
+                        android:id="@+id/tvTitleCategory"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="ĐỒ GỖ"
+                        android:textAppearance="@style/TextTitleCategory"
+                        android:drawableRight="@drawable/ic_down"
 
+                        android:gravity="center"
+                        />
+                </LinearLayout>
 
+        </LinearLayout>
+        </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="45"
+            android:padding="13dp">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_forward"/>
+        </LinearLayout>
     </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="8"
-        android:orientation="vertical"
-        android:background="@color/colorPrimary">
+        android:layout_weight="13"
+        android:background="@color/colorBackgroundGray"
+        android:orientation="vertical">
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/rcvHienThiHienVat"
+            android:id="@+id/rcvShowCategoryExhibit"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="2dp">
+            android:layout_margin="2dp"
+            android:baselineAligned="false">
 
         </android.support.v7.widget.RecyclerView>
 
