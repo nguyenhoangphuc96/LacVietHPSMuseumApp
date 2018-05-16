@@ -12,6 +12,10 @@
     <color name="colorTextDecriptionGray">#9F9F9F</color>
     <color name="colorTextSelected">#1091D3</color>
     <color name="colorTextSearchBox">#DDDDDD</color>
+    <color name="colorGrayforText">#828486</color>
+    <color name="colorOrange">#f99508</color>
+    <color name="transparent">#00000000</color>
+
 
 
     <array name="array_dot_active">

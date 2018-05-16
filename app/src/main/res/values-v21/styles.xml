@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="CustomAppBar" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="colorControlNormal">@color/colorOrange</item>
+        <item name="android:backgroundStacked">@color/colorOrange</item>
+        <item name="android:colorAccent">@color/colorOrange</item>
+    </style>
+</resources>

@@ -1,5 +1,4 @@
-package vn.com.lacviet.lacviethpsmuseummanagementapp.MainScreen;
-
+package vn.com.lacviet.lacviethpsmuseummanagementapp.DetailScreen;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -15,18 +14,15 @@ import android.widget.TextView;
 
 import vn.com.lacviet.lacviethpsmuseummanagementapp.R;
 
-/**
- * A simple {@link Fragment} subclass.
- */
-public class Fragment1 extends Fragment {
+public class FragmentImageDetail extends Fragment {
     private ViewPager mViewPager;
-    private IntroViewPagerAdapter mPagerAdapter;
+    private ImageViewPagerAdapter mPagerAdapter;
     private LinearLayout mDotsLayout;
     private TextView[] mDots;
     private int[] mLayouts;
 
 
-    public Fragment1() {
+    public FragmentImageDetail() {
         // Required empty public constructor
     }
 
@@ -34,11 +30,11 @@ public class Fragment1 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view= inflater.inflate(R.layout.fragment1, container, false);
+        View view= inflater.inflate(R.layout.fragment_image_detail, container, false);
 
 
-        mViewPager = view.findViewById(R.id.view_pagerSliderPhoto);
-        mDotsLayout = view.findViewById(R.id.layoutDots);
+        mViewPager = view.findViewById(R.id.view_pagerSliderPhotoDetail);
+        mDotsLayout = view.findViewById(R.id.layoutDotsDetail);
         // layouts of all welcome sliders
         // add few more layouts if you want
         mLayouts = new int[]{
@@ -50,7 +46,7 @@ public class Fragment1 extends Fragment {
         addBottomDots(0);
 
 
-        mPagerAdapter = new IntroViewPagerAdapter();
+        mPagerAdapter = new ImageViewPagerAdapter();
         mViewPager.setAdapter(mPagerAdapter);
         mViewPager.addOnPageChangeListener(mViewPagerChangeListener);
 
@@ -97,10 +93,10 @@ public class Fragment1 extends Fragment {
     }
 
     //AdapterViewpager
-    public class IntroViewPagerAdapter extends PagerAdapter {
+    public class ImageViewPagerAdapter extends PagerAdapter {
         private LayoutInflater mInflater;
 
-        public IntroViewPagerAdapter() {
+        public ImageViewPagerAdapter() {
             super();
         }
 
