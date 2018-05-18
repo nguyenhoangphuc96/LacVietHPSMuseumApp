@@ -42,6 +42,7 @@ public class FragmentTabGeneralInfo extends Fragment {
     }
 
     private void addControls(View view) {
+
         tvExhibitName = view.findViewById(R.id.tvExhibitName);
     }
 }
