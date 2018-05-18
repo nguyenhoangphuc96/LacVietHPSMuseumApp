@@ -20,6 +20,7 @@
             android:layout_weight="45"
             android:padding="13dp">
             <ImageView
+                android:id="@+id/imgBackCategoryTitle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/ic_back"/>
@@ -64,6 +65,7 @@
             android:layout_weight="45"
             android:padding="13dp">
             <ImageView
+                android:id="@+id/imgFowardCategoryTitle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/ic_forward"/>

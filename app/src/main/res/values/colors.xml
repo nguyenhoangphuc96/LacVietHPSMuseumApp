@@ -15,7 +15,8 @@
     <color name="colorGrayforText">#828486</color>
     <color name="colorOrange">#f99508</color>
     <color name="transparent">#00000000</color>
-
+    <color name="transparent50White">#80ffffff</color>
+    <color name="transparent50Black">#80000000</color>
 
 
     <array name="array_dot_active">

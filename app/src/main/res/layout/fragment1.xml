@@ -10,6 +10,24 @@
         android:layout_height="match_parent" />
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dots_height"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:background="@color/transparent50Black">
+
+        <TextView
+            android:id="@+id/txtTitleIntro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Lịch sử hình thành"
+            android:textAlignment="center"
+            android:textColor="@color/colorWhite"/>
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/layoutDots"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dots_height"
@@ -24,22 +42,21 @@
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/border_edittext_search">
+        android:background="@drawable/border_edittext_search"
+        android:focusableInTouchMode="true"
+        android:focusable="true" >
         <EditText
-
             android:id="@+id/edtSearch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:inputType="text"
-            android:text="Tìm kiếm hiện vật"
-            android:textColor="@color/colorTextSearchBox"
             android:textAppearance="@style/TextSearchBox"
             android:drawableLeft="@drawable/ic_search"
             android:background="@null"
+            android:hint="Tìm kiếm hiện vật"
+            android:padding="3dp"
+            android:textCursorDrawable="@drawable/cursor_drawable"
             />
     </LinearLayout>
-
-
-
 </RelativeLayout>

@@ -3,6 +3,7 @@ package vn.com.lacviet.lacviethpsmuseummanagementapp.DetailScreen;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import vn.com.lacviet.lacviethpsmuseummanagementapp.MainScreen.Fragment1;
 import vn.com.lacviet.lacviethpsmuseummanagementapp.MainScreen.Fragment2;
@@ -25,6 +26,6 @@ public class ActivityExhibitDetail extends AppCompatActivity {
         manager.beginTransaction()
                 .replace(R.id.layoutExhibitImage,fragment2,fragment2.getTag())
                 .commit();
-
     }
+
 }

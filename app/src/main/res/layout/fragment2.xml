@@ -6,63 +6,81 @@
     android:orientation="vertical"
 
     >
-    <LinearLayout
+    <HorizontalScrollView
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:paddingLeft="5dp"
-        android:paddingRight="5dp"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
-        android:orientation="horizontal"
-        android:weightSum="100"
-        android:background="@color/colorBackgroundToolbarGray">
-
-
+        android:layout_height="50dp">
         <LinearLayout
-            android:layout_weight="33.5"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <TextView
-                android:id="@+id/tvTitleCollection1"
+            android:layout_height="match_parent"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:orientation="horizontal"
+            android:weightSum="100"
+            android:background="@color/colorBackgroundToolbarGray">
+
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="1954-1975"
-                android:textAppearance="@style/TextTitleCollection"
-                android:gravity="center"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_weight="33.5"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <TextView
-                android:id="@+id/tvTitleCollection2"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/tvTitleCollection1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingHorizontal="15dp"
+                    android:text="1954-1975"
+                    android:textAppearance="@style/TextTitleCollection"
+                    android:gravity="center"
+                    />
+            </LinearLayout>
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Tiền Việt Nam"
-                android:textAppearance="@style/TextTitleCollection"
-                android:gravity="center"
-                />
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/tvTitleCollection2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingHorizontal="15dp"
+                    android:text="Tiền Việt Nam"
+                    android:textAppearance="@style/TextTitleCollection"
+                    android:gravity="center"
+                    />
 
-        </LinearLayout>
-        <LinearLayout
-            android:layout_weight="33"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <TextView
-                android:id="@+id/tvTitleCollection3"
+            </LinearLayout>
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Văn Hoá Dân Tộc"
-                android:textAppearance="@style/TextTitleCollection"
-                android:gravity="center"
-                />
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/tvTitleCollection3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingHorizontal="15dp"
+                    android:text="Văn Hoá Dân Tộc"
+                    android:textAppearance="@style/TextTitleCollection"
+                    android:gravity="center"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/test"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Văn Hoá Dân Tộc"
+                    android:paddingHorizontal="15dp"
+                    android:textAppearance="@style/TextTitleCollection"
+                    android:gravity="center"
+                    />
+
+            </LinearLayout>
+
 
         </LinearLayout>
-
-
-
-    </LinearLayout>
+    </HorizontalScrollView>
 
     <LinearLayout
         android:layout_width="match_parent"

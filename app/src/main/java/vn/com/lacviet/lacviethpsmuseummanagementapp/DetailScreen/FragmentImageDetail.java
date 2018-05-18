@@ -13,10 +13,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import vn.com.lacviet.lacviethpsmuseummanagementapp.R;
+import vn.com.lacviet.lacviethpsmuseummanagementapp.adapter.PagerAdapterImageDetail;
 
 public class FragmentImageDetail extends Fragment {
     private ViewPager mViewPager;
-    private ImageViewPagerAdapter mPagerAdapter;
+    private PagerAdapterImageDetail mPagerAdapter;
     private LinearLayout mDotsLayout;
     private TextView[] mDots;
     private int[] mLayouts;
@@ -46,7 +47,7 @@ public class FragmentImageDetail extends Fragment {
         addBottomDots(0);
 
 
-        mPagerAdapter = new ImageViewPagerAdapter();
+        mPagerAdapter = new PagerAdapterImageDetail(getContext(),mLayouts);
         mViewPager.setAdapter(mPagerAdapter);
         mViewPager.addOnPageChangeListener(mViewPagerChangeListener);
 
@@ -91,40 +92,6 @@ public class FragmentImageDetail extends Fragment {
     private int getItem(int i) {
         return mViewPager.getCurrentItem() + i;
     }
-
-    //AdapterViewpager
-    public class ImageViewPagerAdapter extends PagerAdapter {
-        private LayoutInflater mInflater;
-
-        public ImageViewPagerAdapter() {
-            super();
-        }
-
-        @Override
-        public Object instantiateItem(ViewGroup container, int position) {
-            mInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            View view = mInflater.inflate(mLayouts[position], container, false);
-            container.addView(view);
-            return view;
-        }
-
-        @Override
-        public int getCount() {
-            return mLayouts.length;
-        }
-
-        @Override
-        public boolean isViewFromObject(View view, Object object) {
-            return view == object;
-        }
-
-        @Override
-        public void destroyItem(ViewGroup container, int position, Object object) {
-            View view = (View) object;
-            container.removeView(view);
-        }
-    }
-
 
 }
 

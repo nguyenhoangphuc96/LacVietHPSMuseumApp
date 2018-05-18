@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -20,14 +21,12 @@ import vn.com.lacviet.lacviethpsmuseummanagementapp.adapter.RecyclerViewAdapter_
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Fragment2 extends Fragment {
+public class Fragment2 extends Fragment implements View.OnClickListener {
     private RecyclerView recyclerView;
     private RecyclerViewAdapter_ExhibitCollection adapterCollection;
     private List<Integer> listImageExhibit;
-    private boolean tvTitle1Clicked = true;
-    private boolean tvTitle2Clicked = false;
-    private boolean tvTitle3Clicked = false;
-
+    private int arrTextViewId[] = {R.id.tvTitleCollection1,R.id.tvTitleCollection2,R.id.tvTitleCollection3};
+    private TextView arrTextView[] = new TextView[arrTextViewId.length];
 
     public Fragment2() {
         // Required empty public constructor
@@ -39,9 +38,11 @@ public class Fragment2 extends Fragment {
                              Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.fragment2, container, false);
         //
-        final TextView tvTitle1=view.findViewById(R.id.tvTitleCollection1);
-        final TextView tvTitle2=view.findViewById(R.id.tvTitleCollection2);
-        final TextView tvTitle3=view.findViewById(R.id.tvTitleCollection3);
+        int index = 0;
+        for(index = 0;index<arrTextView.length;index++){
+            arrTextView[index] = view.findViewById(arrTextViewId[index]);
+            arrTextView[index].setOnClickListener(this);
+        }
 
         recyclerView= view.findViewById(R.id.rcvShowCollectionExhibit);
         listImageExhibit = new ArrayList<>();
@@ -61,116 +62,53 @@ public class Fragment2 extends Fragment {
         recyclerView.setAdapter(adapterCollection);
 
         //
-        tvTitle1.setBackgroundDrawable(getResources().getDrawable(R.drawable.border_text_selected));
-        tvTitle1.setTextColor(getResources().getColor(R.color.colorWhite));
-        tvTitle1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(tvTitle1Clicked) {
-                    tvTitle1.setBackgroundDrawable(getResources().getDrawable(R.drawable.border_text_selected));
-                    tvTitle1.setTextColor(getResources().getColor(R.color.colorWhite));
-                    tvTitle2Clicked=tvTitle3Clicked=false;
+        arrTextView[0].setBackgroundDrawable(getResources().getDrawable(R.drawable.border_text_selected));
+        arrTextView[0].setTextColor(getResources().getColor(R.color.colorWhite));
 
-
-                }
-                else
-                {
-                    if(tvTitle2Clicked)
-                    {
-                        tvTitle2.setBackgroundDrawable(getResources().getDrawable(R.drawable.border_text_unselected));
-                        tvTitle2.setTextColor(getResources().getColor(R.color.colorBlack));
-                        tvTitle1.setBackgroundDrawable(getResources().getDrawable(R.drawable.border_text_selected));
-                        tvTitle1.setTextColor(getResources().getColor(R.color.colorWhite));
-                        tvTitle1Clicked=true;
-                        tvTitle2Clicked=tvTitle3Clicked=false;
-
-                    }
-                    else
-                    {
-                        tvTitle3.setBackgroundDrawable(getResources().getDrawable(R.drawable.border_text_unselected));
-                        tvTitle3.setTextColor(getResources().getColor(R.color.colorBlack));
-                        tvTitle1.setBackgroundDrawable(getResources().getDrawable(R.drawable.border_text_selected));
-                        tvTitle1.setTextColor(getResources().getColor(R.color.colorWhite));
-                        tvTitle1Clicked=true;
-                        tvTitle2Clicked=tvTitle3Clicked=false;
-                    }
-                }
-
-            }
-        });
-        tvTitle2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(tvTitle2Clicked) {
-                tvTitle2.setBackgroundDrawable(getResources().getDrawable(R.drawable.border_text_selected));
-                tvTitle2.setTextColor(getResources().getColor(R.color.colorWhite));
-                tvTitle1Clicked=tvTitle3Clicked=false;
-
-
-            }
-            else
-            {
-                if(tvTitle1Clicked)
-                {
-                    tvTitle1.setBackgroundDrawable(getResources().getDrawable(R.drawable.border_text_unselected));
-                    tvTitle1.setTextColor(getResources().getColor(R.color.colorBlack));
-                    tvTitle2.setBackgroundDrawable(getResources().getDrawable(R.drawable.border_text_selected));
-                    tvTitle2.setTextColor(getResources().getColor(R.color.colorWhite));
-                    tvTitle2Clicked=true;
-                    tvTitle1Clicked=tvTitle3Clicked=false;
-
-                }
-                else
-                {
-                    tvTitle3.setBackgroundDrawable(getResources().getDrawable(R.drawable.border_text_unselected));
-                    tvTitle3.setTextColor(getResources().getColor(R.color.colorBlack));
-                    tvTitle2.setBackgroundDrawable(getResources().getDrawable(R.drawable.border_text_selected));
-                    tvTitle2.setTextColor(getResources().getColor(R.color.colorWhite));
-                    tvTitle2Clicked=true;
-                    tvTitle1Clicked=tvTitle3Clicked=false;
-                }
-            }
-            }
-        });tvTitle3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(tvTitle3Clicked) {
-                tvTitle3.setBackgroundDrawable(getResources().getDrawable(R.drawable.border_text_selected));
-                tvTitle3.setTextColor(getResources().getColor(R.color.colorWhite));
-                tvTitle2Clicked=tvTitle1Clicked=false;
-
-
-            }
-            else
-            {
-                if(tvTitle2Clicked)
-                {
-                    tvTitle2.setBackgroundDrawable(getResources().getDrawable(R.drawable.border_text_unselected));
-                    tvTitle2.setTextColor(getResources().getColor(R.color.colorBlack));
-                    tvTitle3.setBackgroundDrawable(getResources().getDrawable(R.drawable.border_text_selected));
-                    tvTitle3.setTextColor(getResources().getColor(R.color.colorWhite));
-                    tvTitle3Clicked=true;
-                    tvTitle2Clicked=tvTitle1Clicked=false;
-
-                }
-                else
-                {
-                    tvTitle1.setBackgroundDrawable(getResources().getDrawable(R.drawable.border_text_unselected));
-                    tvTitle1.setTextColor(getResources().getColor(R.color.colorBlack));
-                    tvTitle3.setBackgroundDrawable(getResources().getDrawable(R.drawable.border_text_selected));
-                    tvTitle3.setTextColor(getResources().getColor(R.color.colorWhite));
-                    tvTitle3Clicked=true;
-                    tvTitle2Clicked=tvTitle1Clicked=false;
-                }
-            }
-            }
-        });
-
+        addEvents();
 
         return view;
 
-        //
     }
 
-  
+    private void addEvents() {
+
+    }
+
+
+    @Override
+    public void onClick(View v) {
+        int id = v.getId();
+        switch (id){
+            case R.id.tvTitleCollection1:{
+                setDefaultTextViewTitleCollection();
+                setSelectedTextViewTitleCollection(arrTextView[0]);
+                break;
+            }
+            case R.id.tvTitleCollection2:{
+                setDefaultTextViewTitleCollection();
+                setSelectedTextViewTitleCollection(arrTextView[1]);
+                break;
+            }
+            case R.id.tvTitleCollection3:{
+                setDefaultTextViewTitleCollection();
+                setSelectedTextViewTitleCollection(arrTextView[2]);
+                break;
+            }
+            default:break;
+        }
+    }
+
+    private void setSelectedTextViewTitleCollection(TextView tv){
+        tv.setBackgroundDrawable(getResources().getDrawable(R.drawable.border_text_selected));
+        tv.setTextColor(getResources().getColor(R.color.colorWhite));
+    }
+
+    private void setDefaultTextViewTitleCollection(){
+        int index =0;
+        for(index =0;index<arrTextView.length;index++){
+            arrTextView[index].setBackgroundDrawable(getResources().getDrawable(R.drawable.border_text_unselected));
+            arrTextView[index].setTextColor(getResources().getColor(R.color.colorBlack));
+        }
+    }
 }

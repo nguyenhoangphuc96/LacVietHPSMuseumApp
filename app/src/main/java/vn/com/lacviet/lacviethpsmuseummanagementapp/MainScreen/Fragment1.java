@@ -24,6 +24,7 @@ public class Fragment1 extends Fragment {
     private LinearLayout mDotsLayout;
     private TextView[] mDots;
     private int[] mLayouts;
+    private TextView txtTitleIntro;
 
 
     public Fragment1() {
@@ -39,6 +40,8 @@ public class Fragment1 extends Fragment {
 
         mViewPager = view.findViewById(R.id.view_pagerSliderPhoto);
         mDotsLayout = view.findViewById(R.id.layoutDots);
+        txtTitleIntro= view.findViewById(R.id.txtTitleIntro);
+
         // layouts of all welcome sliders
         // add few more layouts if you want
         mLayouts = new int[]{
@@ -66,6 +69,7 @@ public class Fragment1 extends Fragment {
         @Override
         public void onPageSelected(int position) {
             addBottomDots(position);
+            setTitleIntroText(position);
         }
 
         @Override
@@ -73,6 +77,25 @@ public class Fragment1 extends Fragment {
 
         }
     };
+
+    private void setTitleIntroText(int position) {
+        switch (position){
+            case 0: {
+                txtTitleIntro.setText("Lịch sử hình thành");
+                break;
+            }
+            case 1:{
+                txtTitleIntro.setText("Cơ cấu tổ chức");
+                break;
+            }
+            default:{
+                txtTitleIntro.setText("Giới thiệu chung");
+                break;
+            }
+        }
+
+    }
+
     private void addBottomDots(int currentPage) {
         mDots = new TextView[mLayouts.length];
 
