@@ -7,18 +7,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import java.util.List;
 
-import vn.com.lacviet.lacviethpsmuseummanagementapp.DetailScreen.ActivityExhibitDetail;
+import vn.com.lacviet.lacviethpsmuseummanagementapp.DetailScreen.ExhibitDetailActivity;
 import vn.com.lacviet.lacviethpsmuseummanagementapp.KeyString;
 import vn.com.lacviet.lacviethpsmuseummanagementapp.R;
 
-public class RecyclerViewAdapter_ExhibitCollection  extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class ExhibitCollectionRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private Context context;
     private List<Integer> listImageExhibit;
-    public RecyclerViewAdapter_ExhibitCollection(Context context, List<Integer> listImageExhibit)
+    public ExhibitCollectionRecyclerViewAdapter(Context context, List<Integer> listImageExhibit)
     {
         this.context=context;
         this.listImageExhibit=listImageExhibit;
@@ -35,7 +34,7 @@ public class RecyclerViewAdapter_ExhibitCollection  extends RecyclerView.Adapter
     public RecyclerView.ViewHolder onCreateViewHolder(final ViewGroup parent, int viewType) {
         final RecyclerView.ViewHolder viewHolder;
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_image, parent, false);
-        viewHolder = new RecyclerViewAdapter_ExhibitCollection.DataItem(view);
+        viewHolder = new ExhibitCollectionRecyclerViewAdapter.DataItem(view);
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,7 +47,7 @@ public class RecyclerViewAdapter_ExhibitCollection  extends RecyclerView.Adapter
     }
 
     private void startDetailActivity(int position) {
-        Intent intent = new Intent(context, ActivityExhibitDetail.class);
+        Intent intent = new Intent(context, ExhibitDetailActivity.class);
         KeyString key = new KeyString();
         intent.putExtra(key.ITEM_KEY, position);
         context.startActivity(intent);
@@ -56,7 +55,7 @@ public class RecyclerViewAdapter_ExhibitCollection  extends RecyclerView.Adapter
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        RecyclerViewAdapter_ExhibitCollection.DataItem mHolder = (RecyclerViewAdapter_ExhibitCollection.DataItem) holder;
+        ExhibitCollectionRecyclerViewAdapter.DataItem mHolder = (ExhibitCollectionRecyclerViewAdapter.DataItem) holder;
         int item = listImageExhibit.get(position);
         mHolder.imgExhibit.setImageResource(item);
     }

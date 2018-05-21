@@ -4,16 +4,16 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import vn.com.lacviet.lacviethpsmuseummanagementapp.DetailScreen.FragmentTabExpertise;
-import vn.com.lacviet.lacviethpsmuseummanagementapp.DetailScreen.FragmentTabGeneralInfo;
-import vn.com.lacviet.lacviethpsmuseummanagementapp.DetailScreen.FragmentTabHistory;
-import vn.com.lacviet.lacviethpsmuseummanagementapp.DetailScreen.FragmentTabLocation;
-import vn.com.lacviet.lacviethpsmuseummanagementapp.DetailScreen.FragmentTabPropertie;
-import vn.com.lacviet.lacviethpsmuseummanagementapp.DetailScreen.FragmentTabSupplier;
+import vn.com.lacviet.lacviethpsmuseummanagementapp.DetailScreen.TabExpertiseFragment;
+import vn.com.lacviet.lacviethpsmuseummanagementapp.DetailScreen.TabGeneralInfoFragment;
+import vn.com.lacviet.lacviethpsmuseummanagementapp.DetailScreen.TabHistoryFragment;
+import vn.com.lacviet.lacviethpsmuseummanagementapp.DetailScreen.TabLocationFragment;
+import vn.com.lacviet.lacviethpsmuseummanagementapp.DetailScreen.TabPropertieFragment;
+import vn.com.lacviet.lacviethpsmuseummanagementapp.DetailScreen.TabSupplierFragment;
 
-public class PagerAdapterInfoDetail extends FragmentStatePagerAdapter {
+public class InfoDetailPagerAdapter extends FragmentStatePagerAdapter {
 
-    public PagerAdapterInfoDetail(FragmentManager fragmentManager) {
+    public InfoDetailPagerAdapter(FragmentManager fragmentManager) {
         super(fragmentManager);
     }
     @Override
@@ -21,22 +21,22 @@ public class PagerAdapterInfoDetail extends FragmentStatePagerAdapter {
         Fragment frag=null;
         switch (position){
             case 0:
-                frag= new FragmentTabGeneralInfo();
+                frag= new TabGeneralInfoFragment();
                 break;
             case 1:
-                frag= new FragmentTabExpertise();
+                frag= new TabExpertiseFragment();
                 break;
             case 2:
-                frag= new FragmentTabLocation();
+                frag= new TabLocationFragment();
                 break;
             case 3:
-                frag= new FragmentTabPropertie();
+                frag= new TabPropertieFragment();
                 break;
             case 4:
-                frag= new FragmentTabSupplier();
+                frag= new TabSupplierFragment();
                 break;
             case 5:
-                frag= new FragmentTabHistory();
+                frag= new TabHistoryFragment();
                 break;
         }
         return frag;
@@ -63,7 +63,7 @@ public class PagerAdapterInfoDetail extends FragmentStatePagerAdapter {
                 title = "THUỘC TÍNH";
                 break;
             case 4:
-                title = "CUNG CẤP";
+                title = "NGUỒN CUNG CẤP";
                 break;
             case 5:
                 title = "LỊCH SỬ";

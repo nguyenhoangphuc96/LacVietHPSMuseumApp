@@ -56,7 +56,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:paddingHorizontal="15dp"
-                    android:text="Văn Hoá Dân Tộc"
+                    android:text="Văn Hoá Dân Tộc Khmer"
                     android:textAppearance="@style/TextTitleCollection"
                     android:gravity="center"
                     />
@@ -67,10 +67,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <TextView
-                    android:id="@+id/test"
+                    android:id="@+id/tvTitleCollection4"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="Văn Hoá Dân Tộc"
+                    android:text="Văn Hoá Dân Tộc Chăm"
                     android:paddingHorizontal="15dp"
                     android:textAppearance="@style/TextTitleCollection"
                     android:gravity="center"

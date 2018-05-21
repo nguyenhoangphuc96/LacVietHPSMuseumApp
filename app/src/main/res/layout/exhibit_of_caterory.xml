@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:fab="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:weightSum="100">
 
@@ -98,101 +97,30 @@
 
         </LinearLayout>
     </LinearLayout>
-
-    <com.github.clans.fab.FloatingActionMenu
-        android:id="@+id/menu"
+    <com.leinardi.android.speeddial.SpeedDialOverlayLayout
+        android:id="@+id/overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/transparent80Black"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+    <com.leinardi.android.speeddial.SpeedDialView
+        android:id="@+id/speedDial"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        app:layout_anchor="@+id/linearLayout"
-        app:layout_anchorGravity="left|bottom"
-        fab:menu_animationDelayPerItem="50"
-        fab:menu_backgroundColor="@android:color/transparent"
-        fab:menu_buttonSpacing="0dp"
-        fab:menu_colorNormal="@color/colorRed"
-        fab:menu_colorPressed="#E75043"
-        fab:menu_colorRipple="#99FFFFFF"
-        fab:menu_fab_hide_animation="@anim/hide_to_bottom"
-        fab:menu_fab_show_animation="@anim/show_from_bottom"
-        fab:menu_fab_size="normal"
-        fab:menu_icon="@drawable/ic_menu"
-        fab:menu_labels_colorNormal="#333333"
-        fab:menu_labels_colorPressed="#444444"
-        fab:menu_labels_colorRipple="#66FFFFFF"
-        fab:menu_labels_cornerRadius="3dp"
-        fab:menu_labels_ellipsize="none"
-        fab:menu_labels_hideAnimation="@anim/fab_slide_out_to_right"
-        fab:menu_labels_margin="0dp"
-        fab:menu_labels_maxLines="-1"
-        fab:menu_labels_padding="8dp"
-        fab:menu_labels_paddingBottom="4dp"
-        fab:menu_labels_paddingLeft="8dp"
-        fab:menu_labels_paddingRight="8dp"
-        fab:menu_labels_paddingTop="4dp"
-        fab:menu_labels_position="right"
-        fab:menu_labels_showAnimation="@anim/fab_slide_in_from_right"
-        fab:menu_labels_showShadow="true"
-        fab:menu_labels_singleLine="false"
-        fab:menu_labels_textColor="#FFFFFF"
-        fab:menu_labels_textSize="14sp"
-        fab:menu_openDirection="up"
-        fab:menu_shadowColor="#66000000"
-        fab:menu_shadowRadius="4dp"
-        fab:menu_shadowXOffset="1dp"
-        fab:menu_shadowYOffset="3dp"
-        fab:menu_showShadow="true">
+        android:layout_gravity="bottom|right"
+        app:sdMainFabClosedSrc="@drawable/ic_menu"
+        app:sdMainFabOpenedSrc="@drawable/ic_x"
+        app:sdMainFabClosedBackgroundColor="@color/colorRed"
+        app:sdMainFabOpenedBackgroundColor="@color/colorRed"
+        app:sdExpansionMode="top"
+        app:sdOverlayLayout="@id/overlay"
+        app:layout_behavior="@string/speeddial_scrolling_view_snackbar_behavior"
 
-        <com.github.clans.fab.FloatingActionButton
-            android:id="@+id/menuItemHome"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_home"
-            fab:fab_label="Trang chủ"
-            fab:fab_size="mini" />
 
-        <com.github.clans.fab.FloatingActionButton
-            android:id="@+id/menuItemIntroduce"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_intro"
-            fab:fab_label="Giới thiệu"
-            fab:fab_size="mini" />
+        />
 
-        <com.github.clans.fab.FloatingActionButton
-            android:id="@+id/menuItemSearch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_search"
-            fab:fab_label="Tra cứu"
-            fab:fab_size="mini" />
 
-        <com.github.clans.fab.FloatingActionButton
-            android:id="@+id/menuItemCaterory"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_category"
-            fab:fab_label="Danh mục hiện vật"
-            fab:fab_size="mini" />
-        <com.github.clans.fab.FloatingActionButton
-            android:id="@+id/menuItemLegislation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_legislation"
-            fab:fab_label="Văn bản pháp luật"
-            fab:fab_size="mini" />
-        <com.github.clans.fab.FloatingActionButton
-            android:id="@+id/menuItemContact"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_contact"
-            fab:fab_label="Thông tin liên hệ"
-            fab:fab_size="mini" />
 
-    </com.github.clans.fab.FloatingActionMenu>
 
 </android.support.design.widget.CoordinatorLayout>
 

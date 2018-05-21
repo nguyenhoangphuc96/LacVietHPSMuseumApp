@@ -36,8 +36,21 @@ public class Fragment1 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.fragment1, container, false);
+        addControls(view);
+        // adding bottom dots
+        addBottomDots(0);
+        showViewPager();
+        return view;
+    }
 
+    private void showViewPager() {
+        mPagerAdapter = new IntroViewPagerAdapter();
+        mViewPager.setAdapter(mPagerAdapter);
+        mViewPager.addOnPageChangeListener(mViewPagerChangeListener);
 
+    }
+
+    private void addControls(View view) {
         mViewPager = view.findViewById(R.id.view_pagerSliderPhoto);
         mDotsLayout = view.findViewById(R.id.layoutDots);
         txtTitleIntro= view.findViewById(R.id.txtTitleIntro);
@@ -48,18 +61,8 @@ public class Fragment1 extends Fragment {
                 R.layout.fragment1_slide1,
                 R.layout.fragment1_slide2,
                 R.layout.fragment1_slide3};
-
-        // adding bottom dots
-        addBottomDots(0);
-
-
-        mPagerAdapter = new IntroViewPagerAdapter();
-        mViewPager.setAdapter(mPagerAdapter);
-        mViewPager.addOnPageChangeListener(mViewPagerChangeListener);
-
-
-        return view;
     }
+
     private ViewPager.OnPageChangeListener mViewPagerChangeListener = new ViewPager.OnPageChangeListener() {
         @Override
         public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {

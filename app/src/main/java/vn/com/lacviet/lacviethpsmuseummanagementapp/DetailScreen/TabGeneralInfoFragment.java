@@ -13,8 +13,8 @@ import java.security.Key;
 import vn.com.lacviet.lacviethpsmuseummanagementapp.KeyString;
 import vn.com.lacviet.lacviethpsmuseummanagementapp.R;
 
-public class FragmentTabGeneralInfo extends Fragment {
-    public FragmentTabGeneralInfo() {
+public class TabGeneralInfoFragment extends Fragment {
+    public TabGeneralInfoFragment() {
         // Required empty public constructor
     }
     

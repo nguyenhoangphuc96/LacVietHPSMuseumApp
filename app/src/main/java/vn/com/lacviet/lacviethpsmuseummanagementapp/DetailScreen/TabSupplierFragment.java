@@ -9,12 +9,12 @@ import android.view.ViewGroup;
 
 import vn.com.lacviet.lacviethpsmuseummanagementapp.R;
 
-public class FragmentTabHistory extends Fragment {
-    public FragmentTabHistory() {
+public class TabSupplierFragment extends Fragment {
+    public TabSupplierFragment() {
         // Required empty public constructor
     }
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_info_detail_tab_history,container,false);
+        return inflater.inflate(R.layout.fragment_info_detail_tab_supplier,container,false);
     }
 }

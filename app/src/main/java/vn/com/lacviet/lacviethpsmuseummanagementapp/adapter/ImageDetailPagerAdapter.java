@@ -6,12 +6,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class PagerAdapterImageDetail extends PagerAdapter {
+public class ImageDetailPagerAdapter extends PagerAdapter {
     private LayoutInflater mInflater;
     private int mLayouts[];
     private Context mContext;
 
-    public PagerAdapterImageDetail(Context context, int[] layouts) {
+    public ImageDetailPagerAdapter(Context context, int[] layouts) {
         super();
         mContext = context;
         mLayouts = layouts;

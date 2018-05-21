@@ -7,18 +7,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
 
 import vn.com.lacviet.lacviethpsmuseummanagementapp.R;
 import vn.com.lacviet.lacviethpsmuseummanagementapp.model.ExhibitModels;
 
-public class RecyclerViewAdapter_ExhibitCategory extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class SearchResultRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private Context context;
     private List<ExhibitModels> listExhibit;
 
-    public RecyclerViewAdapter_ExhibitCategory(Context context, List<ExhibitModels> listExhibit) {
+    public SearchResultRecyclerViewAdapter(Context context, List<ExhibitModels> listExhibit) {
         this.context = context;
         this.listExhibit = listExhibit;
     }
@@ -44,7 +43,7 @@ public class RecyclerViewAdapter_ExhibitCategory extends RecyclerView.Adapter<Re
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         RecyclerView.ViewHolder viewHolder;
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_category, parent, false);
-        viewHolder = new RecyclerViewAdapter_ExhibitCategory.DataItem(view);
+        viewHolder = new SearchResultRecyclerViewAdapter.DataItem(view);
 
 
         return viewHolder;
@@ -52,7 +51,7 @@ public class RecyclerViewAdapter_ExhibitCategory extends RecyclerView.Adapter<Re
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        RecyclerViewAdapter_ExhibitCategory.DataItem mHolder = (RecyclerViewAdapter_ExhibitCategory.DataItem) holder;
+        SearchResultRecyclerViewAdapter.DataItem mHolder = (SearchResultRecyclerViewAdapter.DataItem) holder;
         ExhibitModels item = listExhibit.get(position);
         mHolder.imgExhibit.setImageResource(item.getImage());
         mHolder.tvExhibitName.setText(item.getExhibitName());

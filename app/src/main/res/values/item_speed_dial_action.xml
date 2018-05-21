@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="fab_home" type="id" />
+    <item name="fab_intro" type="id" />
+    <item name="fab_search" type="id" />
+    <item name="fab_category" type="id" />
+    <item name="fab_legislation" type="id" />
+    <item name="fab_contact" type="id" />
+</resources>

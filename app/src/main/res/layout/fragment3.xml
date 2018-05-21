@@ -50,8 +50,6 @@
                         android:layout_height="match_parent"
                         android:text="ĐỒ GỖ"
                         android:textAppearance="@style/TextTitleCategory"
-                        android:drawableRight="@drawable/ic_down"
-
                         android:gravity="center"
                         />
                 </LinearLayout>

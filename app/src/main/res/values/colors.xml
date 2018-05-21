@@ -8,6 +8,7 @@
     <color name="colorBackgroundGray">#F2F2F2</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorRed">#DC0000</color>
+    <color name="colorLittleRed">#fc3939</color>
     <color name="colorBlack">#000000</color>
     <color name="colorTextDecriptionGray">#9F9F9F</color>
     <color name="colorTextSelected">#1091D3</color>
@@ -15,8 +16,13 @@
     <color name="colorGrayforText">#828486</color>
     <color name="colorOrange">#f99508</color>
     <color name="transparent">#00000000</color>
+    <color name="transparentBlack">#00ffffff</color>
     <color name="transparent50White">#80ffffff</color>
     <color name="transparent50Black">#80000000</color>
+    <color name="transparent80Black">#CC000000</color>
+    <color name="colorBlueBackgroundButton">#1091D3</color>
+    <color name="colorBlueShadow">#0072AD</color>
+
 
 
     <array name="array_dot_active">

@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import vn.com.lacviet.lacviethpsmuseummanagementapp.R;
-import vn.com.lacviet.lacviethpsmuseummanagementapp.adapter.RecyclerViewAdapter_ExhibitCategory;
+import vn.com.lacviet.lacviethpsmuseummanagementapp.adapter.ExhibitCategoryRecyclerViewAdapter;
 import vn.com.lacviet.lacviethpsmuseummanagementapp.model.ExhibitModels;
 
 /**
@@ -24,7 +24,7 @@ import vn.com.lacviet.lacviethpsmuseummanagementapp.model.ExhibitModels;
 public class Fragment3 extends Fragment {
 
     private RecyclerView recyclerView;
-    private RecyclerViewAdapter_ExhibitCategory adapter_exhibitCategory;
+    private ExhibitCategoryRecyclerViewAdapter adapter_exhibitCategory;
     private RecyclerView.LayoutManager layoutManager;
     private List<ExhibitModels> listExhibit;
     private ImageView imgBackCategoryTitle,imgFowardCategoryTitle;
@@ -59,15 +59,20 @@ public class Fragment3 extends Fragment {
 
     private void addCategoryData() {
         listCategory = new ArrayList<>();
-        listCategory.add("Đồ gỗ");
-        listCategory.add("Đồ dệt");
-        listCategory.add("Đồ kim loại");
+        listCategory.add("GIẤY");
+        listCategory.add("KIM LOẠI");
+        listCategory.add("SÀNH SỨ");
+        listCategory.add("ĐÁ");
+        listCategory.add("NHỰA");
+        listCategory.add("GỖ");
+        listCategory.add("ĐỒ DỆT");
+        listCategory.add("KHÁC");
     }
 
     private void showRecyclerView() {
         //LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         //layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        adapter_exhibitCategory = new RecyclerViewAdapter_ExhibitCategory(getContext(),listExhibit);
+        adapter_exhibitCategory = new ExhibitCategoryRecyclerViewAdapter(getContext(),listExhibit);
         GridLayoutManager layoutManager = new GridLayoutManager(getContext(), 2);
         recyclerView.setLayoutManager(layoutManager);
         //recyclerView.setLayoutManager(layoutManager);
