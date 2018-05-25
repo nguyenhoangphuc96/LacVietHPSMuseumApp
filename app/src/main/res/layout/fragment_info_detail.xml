@@ -86,7 +86,7 @@
         android:background="@color/colorWhite"
         >
         <TextView
-
+            android:id="@+id/tvSameExhibit"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="HIỆN VẬT TƯƠNG TỰ"
