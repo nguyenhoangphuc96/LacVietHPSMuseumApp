@@ -28,7 +28,6 @@ public class CustomArrayAdapter extends ArrayAdapter<String> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-
         return rowview(convertView,position);
     }
 
@@ -55,7 +54,6 @@ public class CustomArrayAdapter extends ArrayAdapter<String> {
             holder = (viewHolder) rowview.getTag();
         }
         holder.txtTitle.setText(rowItem);
-
         return rowview;
     }
 

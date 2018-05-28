@@ -1,5 +1,6 @@
 package vn.com.lacviet.lacviethpsmuseummanagementapp;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
@@ -7,6 +8,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -14,9 +16,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewTreeObserver;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.jaeger.library.StatusBarUtil;
 import com.leinardi.android.speeddial.SpeedDialActionItem;
@@ -39,7 +46,7 @@ public class MainActivityNew extends AppCompatActivity implements View.OnClickLi
     RecyclerView recyclerView;
     NavigationView navigationView;
     DrawerLayout drawerLayout;
-    TextView tvTitleToolbar;
+    TextView tvTitleToolbar,txtTitleCategory;
     //recyclerview
     private MainscreenRecyclerViewAdapter adapter_exhibit;
     private RecyclerView.LayoutManager layoutManager;
@@ -53,8 +60,8 @@ public class MainActivityNew extends AppCompatActivity implements View.OnClickLi
     //menu
     private int arrImageViewId[] = {R.id.imvHomeMenu,R.id.imvIntroMenu,R.id.imvSearchMenu,R.id.imvCateMenu,R.id.imvLegisMenu,R.id.imvContactMenu,R.id.imvExitMenu};
     private ImageView arrImageView[] = new ImageView[arrImageViewId.length];
-
-
+    AlertDialog alertDialog;
+    ListView lvCategogyName;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -69,7 +76,47 @@ public class MainActivityNew extends AppCompatActivity implements View.OnClickLi
         addItemtoSpeedDialView();
         //addDataToSpinner();
         showIntroMenu();
+        addEvent();
 
+        RelativeLayout loToolBar,rlTitleCategory;
+        loToolBar = findViewById(R.id.loToolBar);
+        rlTitleCategory = findViewById(R.id.rlTitleCategory);
+        ViewTreeObserver vto = toolbar.getViewTreeObserver();
+        vto.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                int width  = loToolBar.getMeasuredWidth();
+                int height = loToolBar.getMeasuredHeight();
+                int tvWidth = txtTitleCategory.getMeasuredWidth();
+                int tvHeight = txtTitleCategory.getMeasuredHeight();
+                RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+                lp.setMargins((width/2)-(tvWidth/2),height-(tvHeight/2)+4,0,0);
+                rlTitleCategory.setLayoutParams(lp);
+            }
+        });
+    }
+
+    private void addEvent() {
+        txtTitleCategory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showViewDialog();
+            }
+        });
+
+    }
+
+    private void showViewDialog() {
+        View view = getLayoutInflater().inflate(R.layout.dialog_categogy, null);
+        lvCategogyName = (ListView ) view.findViewById(R.id.lvCategogyName);
+        String[] items = new String[] { "Tất cả","Giấy","Kim loại", "Sành sứ", "Đá", "Nhựa", "Khác" };
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,items);
+        lvCategogyName.setAdapter(adapter);
+        alertDialog = new AlertDialog.Builder(this)
+                .setView(view)
+                .create();
+        alertDialog.setCancelable(true);
+        alertDialog.show();
     }
 
     private void showIntroMenu() {
@@ -100,9 +147,6 @@ public class MainActivityNew extends AppCompatActivity implements View.OnClickLi
         CustomArrayAdapter adapter = new CustomArrayAdapter(this,
                 R.layout.item_list_spinner, R.id.tvListSpinner, rowItems);
         spinnerCategogy.setAdapter(adapter);
-
-
-
 
     }
 
@@ -243,6 +287,7 @@ public class MainActivityNew extends AppCompatActivity implements View.OnClickLi
             arrImageView[index] = findViewById(arrImageViewId[index]);
             arrImageView[index].setOnClickListener(this);
         }
+        txtTitleCategory = findViewById(R.id.txtTitleCategory);
     }
 
     @Override
