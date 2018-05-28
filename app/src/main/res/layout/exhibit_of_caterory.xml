@@ -104,14 +104,14 @@
         android:background="@color/transparent80Black"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
     <com.leinardi.android.speeddial.SpeedDialView
-        android:id="@+id/speedDial"
+        android:id="@+id/fabCategory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|right"
         app:sdMainFabClosedSrc="@drawable/ic_menu"
         app:sdMainFabOpenedSrc="@drawable/ic_x"
-        app:sdMainFabClosedBackgroundColor="@color/colorRed"
-        app:sdMainFabOpenedBackgroundColor="@color/colorRed"
+        app:sdMainFabClosedBackgroundColor="@color/colorBlueLight"
+        app:sdMainFabOpenedBackgroundColor="@color/colorBlueLight"
         app:sdExpansionMode="top"
         app:sdOverlayLayout="@id/overlay"
         app:layout_behavior="@string/speeddial_scrolling_view_snackbar_behavior"

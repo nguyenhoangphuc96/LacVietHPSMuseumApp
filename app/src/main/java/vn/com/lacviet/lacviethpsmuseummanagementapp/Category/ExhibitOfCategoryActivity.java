@@ -2,7 +2,6 @@ package vn.com.lacviet.lacviethpsmuseummanagementapp.Category;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
@@ -37,40 +36,10 @@ public class ExhibitOfCategoryActivity extends AppCompatActivity {
 
     private void addItemtoSpeedDialView() {
         speedDialView.addActionItem(
-                new SpeedDialActionItem.Builder(R.id.fab_home, R.drawable.ic_home)
-                        .setFabBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.colorRed, getTheme()))
+                new SpeedDialActionItem.Builder(R.id.fab_contact, R.drawable.ic_contact)
+                        .setFabBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.colorBlueLight, getTheme()))
                         .setFabImageTintColor(ResourcesCompat.getColor(getResources(), R.color.colorWhite, getTheme()))
-                        .setLabel("Trang chủ")
-                        .setLabelColor(ResourcesCompat.getColor(getResources(), R.color.colorWhite, getTheme()))
-                        .setLabelBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.transparentBlack, getTheme()))
-                        .setLabelClickable(true)
-                        .create()
-        );
-        speedDialView.addActionItem(
-                new SpeedDialActionItem.Builder(R.id.fab_intro, R.drawable.ic_intro)
-                        .setFabBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.colorRed, getTheme()))
-                        .setFabImageTintColor(ResourcesCompat.getColor(getResources(), R.color.colorWhite, getTheme()))
-                        .setLabel("Giới thiệu")
-                        .setLabelColor(ResourcesCompat.getColor(getResources(), R.color.colorWhite, getTheme()))
-                        .setLabelBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.transparentBlack, getTheme()))
-                        .setLabelClickable(true)
-                        .create()
-        );
-        speedDialView.addActionItem(
-                new SpeedDialActionItem.Builder(R.id.fab_search, R.drawable.ic_search)
-                        .setFabBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.colorRed, getTheme()))
-                        .setFabImageTintColor(ResourcesCompat.getColor(getResources(), R.color.colorWhite, getTheme()))
-                        .setLabel("Tra cứu")
-                        .setLabelColor(ResourcesCompat.getColor(getResources(), R.color.colorWhite, getTheme()))
-                        .setLabelBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.transparentBlack, getTheme()))
-                        .setLabelClickable(true)
-                        .create()
-        );
-        speedDialView.addActionItem(
-                new SpeedDialActionItem.Builder(R.id.fab_category, R.drawable.ic_category)
-                        .setFabBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.colorRed, getTheme()))
-                        .setFabImageTintColor(ResourcesCompat.getColor(getResources(), R.color.colorWhite, getTheme()))
-                        .setLabel("Danh mục hiện vật")
+                        .setLabel("Thông tin liên hệ")
                         .setLabelColor(ResourcesCompat.getColor(getResources(), R.color.colorWhite, getTheme()))
                         .setLabelBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.transparentBlack, getTheme()))
                         .setLabelClickable(true)
@@ -78,7 +47,7 @@ public class ExhibitOfCategoryActivity extends AppCompatActivity {
         );
         speedDialView.addActionItem(
                 new SpeedDialActionItem.Builder(R.id.fab_legislation, R.drawable.ic_legislation)
-                        .setFabBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.colorRed, getTheme()))
+                        .setFabBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.colorBlueLight, getTheme()))
                         .setFabImageTintColor(ResourcesCompat.getColor(getResources(), R.color.colorWhite, getTheme()))
                         .setLabel("Văn bản pháp luật")
                         .setLabelColor(ResourcesCompat.getColor(getResources(), R.color.colorWhite, getTheme()))
@@ -87,10 +56,40 @@ public class ExhibitOfCategoryActivity extends AppCompatActivity {
                         .create()
         );
         speedDialView.addActionItem(
-                new SpeedDialActionItem.Builder(R.id.fab_contact, R.drawable.ic_contact)
-                        .setFabBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.colorRed, getTheme()))
+                new SpeedDialActionItem.Builder(R.id.fab_category, R.drawable.ic_category)
+                        .setFabBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.colorBlueLight, getTheme()))
                         .setFabImageTintColor(ResourcesCompat.getColor(getResources(), R.color.colorWhite, getTheme()))
-                        .setLabel("Thông tin liên hệ")
+                        .setLabel("Danh mục hiện vật")
+                        .setLabelColor(ResourcesCompat.getColor(getResources(), R.color.colorWhite, getTheme()))
+                        .setLabelBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.transparentBlack, getTheme()))
+                        .setLabelClickable(true)
+                        .create()
+        );
+        speedDialView.addActionItem(
+                new SpeedDialActionItem.Builder(R.id.fab_search, R.drawable.ic_search_white)
+                        .setFabBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.colorBlueLight, getTheme()))
+                        .setFabImageTintColor(ResourcesCompat.getColor(getResources(), R.color.colorWhite, getTheme()))
+                        .setLabel("Tra cứu")
+                        .setLabelColor(ResourcesCompat.getColor(getResources(), R.color.colorWhite, getTheme()))
+                        .setLabelBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.transparentBlack, getTheme()))
+                        .setLabelClickable(true)
+                        .create()
+        );
+        speedDialView.addActionItem(
+                new SpeedDialActionItem.Builder(R.id.fab_intro, R.drawable.ic_intro)
+                        .setFabBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.colorBlueLight, getTheme()))
+                        .setFabImageTintColor(ResourcesCompat.getColor(getResources(), R.color.colorWhite, getTheme()))
+                        .setLabel("Giới thiệu")
+                        .setLabelColor(ResourcesCompat.getColor(getResources(), R.color.colorWhite, getTheme()))
+                        .setLabelBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.transparentBlack, getTheme()))
+                        .setLabelClickable(true)
+                        .create()
+        );
+        speedDialView.addActionItem(
+                new SpeedDialActionItem.Builder(R.id.fab_home, R.drawable.ic_home)
+                        .setFabBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.colorBlueLight, getTheme()))
+                        .setFabImageTintColor(ResourcesCompat.getColor(getResources(), R.color.colorWhite, getTheme()))
+                        .setLabel("Trang chủ")
                         .setLabelColor(ResourcesCompat.getColor(getResources(), R.color.colorWhite, getTheme()))
                         .setLabelBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.transparentBlack, getTheme()))
                         .setLabelClickable(true)
@@ -124,6 +123,6 @@ public class ExhibitOfCategoryActivity extends AppCompatActivity {
 
     private void addControls() {
         recyclerView=findViewById(R.id.rcvShowExhibitOfCategory);
-        speedDialView = findViewById(R.id.speedDial);
+        speedDialView = findViewById(R.id.fabCategory);
     }
 }

@@ -16,12 +16,13 @@ import vn.com.lacviet.lacviethpsmuseummanagementapp.DetailScreen.ExhibitDetailAc
 import vn.com.lacviet.lacviethpsmuseummanagementapp.KeyString;
 import vn.com.lacviet.lacviethpsmuseummanagementapp.R;
 import vn.com.lacviet.lacviethpsmuseummanagementapp.model.ExhibitModels;
+import vn.com.lacviet.lacviethpsmuseummanagementapp.model.RecyclerViewExhibitModels;
 
-public class ExhibitCategoryRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class MainscreenRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private Context context;
-    private List<ExhibitModels> listExhibit;
+    private List<RecyclerViewExhibitModels> listExhibit;
 
-    public ExhibitCategoryRecyclerViewAdapter(Context context, List<ExhibitModels> listExhibit) {
+    public MainscreenRecyclerViewAdapter(Context context, List<RecyclerViewExhibitModels> listExhibit) {
         this.context = context;
         this.listExhibit = listExhibit;
     }
@@ -29,16 +30,13 @@ public class ExhibitCategoryRecyclerViewAdapter extends RecyclerView.Adapter<Rec
         private ImageView imgExhibit;
         private TextView tvExhibitName;
         private TextView tvExhibitDescription;
-        private TextView tvExhibitSee;
-        private TextView tvExhibitHeart;
 
         public DataItem(View itemView) {
             super(itemView);
             imgExhibit = (ImageView) itemView.findViewById(R.id.imgExhibit);
             tvExhibitName = (TextView) itemView.findViewById(R.id.tvExhibitName);
             tvExhibitDescription = (TextView) itemView.findViewById(R.id.tvExhibitDescription);
-            tvExhibitSee = (TextView) itemView.findViewById(R.id.tvExhibitSee);
-            tvExhibitHeart = (TextView) itemView.findViewById(R.id.tvExhibitHeart);
+
 
         }
     }
@@ -46,8 +44,8 @@ public class ExhibitCategoryRecyclerViewAdapter extends RecyclerView.Adapter<Rec
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         RecyclerView.ViewHolder viewHolder;
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_category, parent, false);
-        viewHolder = new ExhibitCategoryRecyclerViewAdapter.DataItem(view);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_recyclerview_mainscreen, parent, false);
+        viewHolder = new MainscreenRecyclerViewAdapter.DataItem(view);
 
 
         return viewHolder;
@@ -55,8 +53,8 @@ public class ExhibitCategoryRecyclerViewAdapter extends RecyclerView.Adapter<Rec
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        final ExhibitCategoryRecyclerViewAdapter.DataItem mHolder = (ExhibitCategoryRecyclerViewAdapter.DataItem) holder;
-        ExhibitModels item = listExhibit.get(position);
+        final MainscreenRecyclerViewAdapter.DataItem mHolder = (MainscreenRecyclerViewAdapter.DataItem) holder;
+        RecyclerViewExhibitModels item = listExhibit.get(position);
         mHolder.imgExhibit.setImageResource(item.getImage());
         //click image to show detail
         mHolder.imgExhibit.setOnClickListener(new View.OnClickListener() {
@@ -68,8 +66,6 @@ public class ExhibitCategoryRecyclerViewAdapter extends RecyclerView.Adapter<Rec
         });
         mHolder.tvExhibitName.setText(item.getExhibitName());
         mHolder.tvExhibitDescription.setText(item.getDescription());
-        mHolder.tvExhibitSee.setText(item.getExhibitSee());
-        mHolder.tvExhibitHeart.setText(item.getExhibitHeart());
 
     }
 
@@ -78,7 +74,7 @@ public class ExhibitCategoryRecyclerViewAdapter extends RecyclerView.Adapter<Rec
         return listExhibit.size();
     }
     private void startDetailActivity(int position) {
-        Intent intent = new Intent(context, ExhibitDetailActivity.class);
+        Intent intent = new Intent(context, ExhibitDetailActivityNew.class);
         KeyString key = new KeyString();
         intent.putExtra(key.ITEM_KEY, position);
         context.startActivity(intent);

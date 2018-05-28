@@ -8,7 +8,8 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     tools:context=".DetailScreen.InfoDetailFragment"
-    android:weightSum="100">
+    android:weightSum="100"
+    android:background="@color/colorWhite">
     <LinearLayout
         android:layout_weight="13"
         android:orientation="vertical"
@@ -82,16 +83,17 @@
         android:layout_weight="87"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="10dp"
         android:background="@color/colorWhite"
+        android:gravity="center"
+        android:layout_margin="5dp"
         >
         <TextView
             android:id="@+id/tvSameExhibit"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="HIỆN VẬT TƯƠNG TỰ"
             android:textAppearance="@style/TextTitleButtonBlue"
-            android:background="@drawable/border_shadow"
+            android:background="@drawable/border_button_bluelight"
             android:gravity="center"/>
 
     </LinearLayout>

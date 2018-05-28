@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        >
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbarExhibitDetail"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorBackgroundToolbarBlue"
+            app:title="Chi tiết hiện vật"
+
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvTitleToolbar"
+
+                android:textAppearance="@style/TextTitleGlobalWhite"
+                android:layout_gravity="start"/>
+
+        </android.support.v7.widget.Toolbar>
+    </LinearLayout>
+    <LinearLayout
+        android:weightSum="100"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_weight="10"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <android.support.design.widget.AppBarLayout
+                android:id="@+id/appbarDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/AppTheme.AppBarOverlay">
+
+                <android.support.design.widget.TabLayout
+                    android:id="@+id/tabLayoutDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="horizontal"
+                    android:background="@color/colorWhite"
+                    app:tabTextAppearance="@style/TextTabName"
+                    app:tabIndicatorColor="@color/colorOrange"
+                    app:tabSelectedTextColor="@color/colorOrange"
+                    app:tabMode="scrollable"
+                    >
+
+                    <android.support.design.widget.TabItem
+                        android:id="@+id/tabGeneralInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tên tab"
+                        />
+
+                    <android.support.design.widget.TabItem
+                        android:id="@+id/tabExpertise"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        />
+
+                    <android.support.design.widget.TabItem
+                        android:id="@+id/tabLocation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        />
+                    <android.support.design.widget.TabItem
+                        android:id="@+id/tabPropertie"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        />
+
+                    <android.support.design.widget.TabItem
+                        android:id="@+id/tabSupplier"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        />
+
+                    <android.support.design.widget.TabItem
+                        android:id="@+id/tabHistory"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        />
+
+                </android.support.design.widget.TabLayout>
+
+            </android.support.design.widget.AppBarLayout>
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_weight="90"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorWhite"
+            android:gravity="center"
+            android:layout_margin="10dp"
+            >
+            <TextView
+                android:id="@+id/tvSameExhibit"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="HIỆN VẬT TƯƠNG TỰ"
+                android:textAppearance="@style/TextTitleButtonBlue"
+                android:background="@drawable/border_button_bluelight"
+                android:gravity="center"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

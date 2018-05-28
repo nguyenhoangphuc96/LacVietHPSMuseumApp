@@ -25,7 +25,7 @@
         android:theme="@style/AppTheme"
         android:name=".Show3DModelScreen.ModelViewerApplication">
 
-        <activity android:name=".MainActivity"
+        <activity android:name=".MainActivityNew"
             android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -75,7 +75,7 @@
                 <data android:mimeType="application/octet-stream" android:scheme="content"/>
             </intent-filter>
         </activity>
-        <activity android:name=".DetailScreen.ExhibitDetailActivity"></activity>
+        <activity android:name=".DetailScreen.ExhibitDetailActivityNew"></activity>
         <activity android:name=".Category.ExhibitOfCategoryActivity"></activity>
 
 

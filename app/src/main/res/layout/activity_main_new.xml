@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorBackgroundToolbarBlue">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <android.support.v4.widget.DrawerLayout
+            android:id="@+id/drawerLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
+                    >
+                    <android.support.v7.widget.Toolbar
+                        android:id="@+id/toolbarMainscreen"
+                        android:layout_width="match_parent"
+                        android:layout_height="?attr/actionBarSize"
+                        android:background="@color/colorBackgroundToolbarBlue"
+                        app:title="Museum"
+
+                        >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tvTitleToolbar"
+
+                            android:textAppearance="@style/TextTitleGlobalWhite"
+                            android:layout_gravity="center"/>
+
+                    </android.support.v7.widget.Toolbar>
+                </LinearLayout>
+
+
+
+
+
+                <LinearLayout
+                    android:paddingTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/border_recyclerview_mainscreen_white"
+                    android:layout_margin="4dp"
+                    >
+                    <android.support.v7.widget.RecyclerView
+
+                        android:id="@+id/rcvMainScreen"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="4dp">
+
+                    </android.support.v7.widget.RecyclerView>
+                </LinearLayout>
+            </LinearLayout>
+            <android.support.design.widget.NavigationView
+                android:id="@+id/ngvMainscreen"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="start">
+                <include layout="@layout/fragment_navigation"/>
+
+            </android.support.design.widget.NavigationView>
+        </android.support.v4.widget.DrawerLayout>
+    </RelativeLayout>
+
+    <com.leinardi.android.speeddial.SpeedDialOverlayLayout
+        android:id="@+id/overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/transparent80Black"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+    <com.leinardi.android.speeddial.SpeedDialView
+        android:id="@+id/fabMainscreen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="bottom|right"
+        app:layout_behavior="@string/speeddial_scrolling_view_snackbar_behavior"
+        app:sdExpansionMode="top"
+        app:sdMainFabClosedBackgroundColor="@color/colorBlueLight"
+        app:sdMainFabClosedSrc="@drawable/ic_menu"
+        app:sdMainFabOpenedBackgroundColor="@color/colorBlueLight"
+
+
+        app:sdMainFabOpenedSrc="@drawable/ic_x"
+        app:sdOverlayLayout="@id/overlay" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="35dp">
+
+        <Spinner
+            android:id="@+id/snFilterCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:background="@drawable/border_button_bluelight"
+            android:overlapAnchor="false"
+            android:padding="0dip"
+            android:spinnerMode="dropdown"
+            android:layout_marginVertical="10dp"/>
+    </RelativeLayout>
+
+
+
+
+
+
+
+
+
+</android.support.design.widget.CoordinatorLayout>

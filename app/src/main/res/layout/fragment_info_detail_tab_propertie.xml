@@ -58,24 +58,6 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Miêu tả: "
-                        android:textAppearance="@style/TextListInfoDetailGray"/>
-                    <TextView
-                        android:id="@+id/tvOtherName"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Võng"
-                        android:textAppearance="@style/TextListInfoDetailBlack"/>
-
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="7dp">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:text="Màu sắc: "
                         android:textAppearance="@style/TextListInfoDetailGray"/>
                     <TextView
