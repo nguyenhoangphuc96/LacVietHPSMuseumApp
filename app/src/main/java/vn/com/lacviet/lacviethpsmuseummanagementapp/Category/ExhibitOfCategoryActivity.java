@@ -56,7 +56,7 @@ public class ExhibitOfCategoryActivity extends AppCompatActivity {
                         .create()
         );
         speedDialView.addActionItem(
-                new SpeedDialActionItem.Builder(R.id.fab_category, R.drawable.ic_category)
+                new SpeedDialActionItem.Builder(R.id.fab_category, R.drawable.ic_categogy)
                         .setFabBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.colorBlueLight, getTheme()))
                         .setFabImageTintColor(ResourcesCompat.getColor(getResources(), R.color.colorWhite, getTheme()))
                         .setLabel("Danh mục hiện vật")

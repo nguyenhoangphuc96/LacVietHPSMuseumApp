@@ -13,16 +13,16 @@
         android:background="@null"
         android:gravity="center">
         <TextView
-            android:id="@+id/txtCategorySelected"
+            android:paddingVertical="5dp"
+            android:drawableRight="@drawable/ic_down_24px"
+            android:id="@+id/txtTitleCategory"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Name"
+            android:text="Tất cả"
+            android:gravity="center"
+            android:textAppearance="@style/TextTitleCategogyDialog"
             android:background="@drawable/border_button_bluelight"/>
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/colorBlueLight"/>
     <ListView
         android:id="@+id/lvCategogyName"
         android:background="@color/colorWhite"

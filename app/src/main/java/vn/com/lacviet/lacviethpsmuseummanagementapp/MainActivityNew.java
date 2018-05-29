@@ -1,7 +1,9 @@
 package vn.com.lacviet.lacviethpsmuseummanagementapp;
 
 import android.app.Dialog;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
@@ -35,6 +37,7 @@ import java.util.List;
 import vn.com.lacviet.lacviethpsmuseummanagementapp.MenuNavigation.CategogMenuFragment;
 import vn.com.lacviet.lacviethpsmuseummanagementapp.MenuNavigation.IntroMenuFragment;
 import vn.com.lacviet.lacviethpsmuseummanagementapp.MenuNavigation.LegislationMenuFragment;
+import vn.com.lacviet.lacviethpsmuseummanagementapp.MenuNavigation.MenuFragment;
 import vn.com.lacviet.lacviethpsmuseummanagementapp.MenuNavigation.SearchMenuFragment;
 import vn.com.lacviet.lacviethpsmuseummanagementapp.adapter.CustomArrayAdapter;
 import vn.com.lacviet.lacviethpsmuseummanagementapp.adapter.MainscreenRecyclerViewAdapter;
@@ -46,7 +49,7 @@ public class MainActivityNew extends AppCompatActivity implements View.OnClickLi
     RecyclerView recyclerView;
     NavigationView navigationView;
     DrawerLayout drawerLayout;
-    TextView tvTitleToolbar,txtTitleCategory;
+    TextView tvTitleToolbar, txtTitleCategory;
     //recyclerview
     private MainscreenRecyclerViewAdapter adapter_exhibit;
     private RecyclerView.LayoutManager layoutManager;
@@ -58,39 +61,49 @@ public class MainActivityNew extends AppCompatActivity implements View.OnClickLi
     Spinner spinnerCategogy;
     List<String> rowItems;
     //menu
-    private int arrImageViewId[] = {R.id.imvHomeMenu,R.id.imvIntroMenu,R.id.imvSearchMenu,R.id.imvCateMenu,R.id.imvLegisMenu,R.id.imvContactMenu,R.id.imvExitMenu};
+    private int arrImageViewId[] = {R.id.imvHomeMenu, R.id.imvIntroMenu, R.id.imvSearchMenu, R.id.imvCateMenu, R.id.imvLegisMenu, R.id.imvContactMenu, R.id.imvExitMenu};
     private ImageView arrImageView[] = new ImageView[arrImageViewId.length];
+    //Dialog
+
     AlertDialog alertDialog;
     ListView lvCategogyName;
+    RelativeLayout loToolBar, rlTitleCategory;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_new);
         //set transparent stt bar
-        StatusBarUtil.setTransparent(this);
+        //StatusBarUtil.setTransparent(this);
+
+
         addControl();
         actionBar();
         addDataRecyclerView();
         showRecyclerView();
         addItemtoSpeedDialView();
-        //addDataToSpinner();
         showIntroMenu();
+        setPositionTextViewTittleCategogy();
         addEvent();
 
-        RelativeLayout loToolBar,rlTitleCategory;
+
+
+    }
+
+    private void setPositionTextViewTittleCategogy() {
+
         loToolBar = findViewById(R.id.loToolBar);
         rlTitleCategory = findViewById(R.id.rlTitleCategory);
         ViewTreeObserver vto = toolbar.getViewTreeObserver();
         vto.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
-                int width  = loToolBar.getMeasuredWidth();
+                int width = loToolBar.getMeasuredWidth();
                 int height = loToolBar.getMeasuredHeight();
                 int tvWidth = txtTitleCategory.getMeasuredWidth();
                 int tvHeight = txtTitleCategory.getMeasuredHeight();
                 RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
-                lp.setMargins((width/2)-(tvWidth/2),height-(tvHeight/2)+4,0,0);
+                lp.setMargins((width / 2) - (tvWidth / 2), height - (tvHeight / 2) + 4, 0, 0);
                 rlTitleCategory.setLayoutParams(lp);
             }
         });
@@ -103,16 +116,38 @@ public class MainActivityNew extends AppCompatActivity implements View.OnClickLi
                 showViewDialog();
             }
         });
+        drawerLayout.addDrawerListener(new DrawerLayout.DrawerListener() {
+            @Override
+            public void onDrawerSlide(@NonNull View drawerView, float slideOffset) {
+
+            }
+
+            @Override
+            public void onDrawerOpened(@NonNull View drawerView) {
+
+            }
+
+            @Override
+            public void onDrawerClosed(@NonNull View drawerView) {
+                showView(txtTitleCategory);
+
+            }
+
+            @Override
+            public void onDrawerStateChanged(int newState) {
+
+            }
+        });
 
     }
 
     private void showViewDialog() {
         View view = getLayoutInflater().inflate(R.layout.dialog_categogy, null);
-        lvCategogyName = (ListView ) view.findViewById(R.id.lvCategogyName);
-        String[] items = new String[] { "Tất cả","Giấy","Kim loại", "Sành sứ", "Đá", "Nhựa", "Khác" };
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,items);
+        lvCategogyName = (ListView) view.findViewById(R.id.lvCategogyName);
+        String[] items = new String[]{"Tất cả", "Giấy", "Kim loại", "Sành sứ", "Đá", "Nhựa", "Khác"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
         lvCategogyName.setAdapter(adapter);
-        alertDialog = new AlertDialog.Builder(this)
+        alertDialog = new AlertDialog.Builder(this, R.style.CustomDialog)
                 .setView(view)
                 .create();
         alertDialog.setCancelable(true);
@@ -122,31 +157,13 @@ public class MainActivityNew extends AppCompatActivity implements View.OnClickLi
     private void showIntroMenu() {
         //show fragment
         IntroMenuFragment introMenuFragment = new IntroMenuFragment();
-        FragmentManager manager=getSupportFragmentManager();
+        FragmentManager manager = getSupportFragmentManager();
         manager.beginTransaction()
                 .replace(R.id.layout_show_menu, introMenuFragment, introMenuFragment.getTag())
                 .commit();
         //set color
         setDefaultIconMenu();
         arrImageView[1].setImageDrawable(getResources().getDrawable(R.drawable.ic_intro_yellow));
-
-    }
-
-
-    private void addDataToSpinner() {
-        String[] items = new String[] { "Tất cả","Giấy","Kim loại", "Sành sứ", "Đá", "Nhựa", "Khác" };
-
-        rowItems = new ArrayList<String>();
-        for (int i = 0; i < items.length; i++) {
-
-            String item = new String(items[i]);
-            rowItems.add(item);
-        }
-
-        spinnerCategogy = (Spinner)findViewById(R.id.snFilterCategory);
-        CustomArrayAdapter adapter = new CustomArrayAdapter(this,
-                R.layout.item_list_spinner, R.id.tvListSpinner, rowItems);
-        spinnerCategogy.setAdapter(adapter);
 
     }
 
@@ -174,7 +191,7 @@ public class MainActivityNew extends AppCompatActivity implements View.OnClickLi
                         .create()
         );
         speedDialView.addActionItem(
-                new SpeedDialActionItem.Builder(R.id.fab_category, R.drawable.ic_category)
+                new SpeedDialActionItem.Builder(R.id.fab_category, R.drawable.ic_categogy)
                         .setFabBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.colorBlueLight, getTheme()))
                         .setFabImageTintColor(ResourcesCompat.getColor(getResources(), R.color.colorWhite, getTheme()))
                         .setLabel("Danh mục hiện vật")
@@ -269,8 +286,25 @@ public class MainActivityNew extends AppCompatActivity implements View.OnClickLi
             @Override
             public void onClick(View v) {
                 drawerLayout.openDrawer(GravityCompat.START);
+                //hide text view categogy
+                hideView(txtTitleCategory);
+
             }
         });
+
+
+    }
+
+    public void hideView(View view) {
+
+
+        view.setVisibility(View.INVISIBLE);
+
+
+    }
+
+    public void showView(View view) {
+        view.setVisibility(View.VISIBLE);
     }
 
     private void addControl() {
@@ -280,10 +314,9 @@ public class MainActivityNew extends AppCompatActivity implements View.OnClickLi
         drawerLayout = findViewById(R.id.drawerLayout);
         tvTitleToolbar = findViewById(R.id.tvTitleToolbar);
         speedDialView = findViewById(R.id.fabMainscreen);
-        spinnerCategogy = findViewById(R.id.snFilterCategory);
         //Menu
         int index = 0;
-        for(index = 0;index<arrImageView.length;index++){
+        for (index = 0; index < arrImageView.length; index++) {
             arrImageView[index] = findViewById(arrImageViewId[index]);
             arrImageView[index].setOnClickListener(this);
         }
@@ -293,15 +326,15 @@ public class MainActivityNew extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View v) {
         int id = v.getId();
-        switch (id){
-            case R.id.imvHomeMenu:{
+        switch (id) {
+            case R.id.imvHomeMenu: {
 
                 break;
             }
-            case R.id.imvIntroMenu:{
+            case R.id.imvIntroMenu: {
                 //show fragment
                 IntroMenuFragment introMenuFragment = new IntroMenuFragment();
-                FragmentManager manager=getSupportFragmentManager();
+                FragmentManager manager = getSupportFragmentManager();
                 manager.beginTransaction()
                         .replace(R.id.layout_show_menu, introMenuFragment, introMenuFragment.getTag())
                         .commit();
@@ -310,10 +343,10 @@ public class MainActivityNew extends AppCompatActivity implements View.OnClickLi
                 arrImageView[1].setImageDrawable(getResources().getDrawable(R.drawable.ic_intro_yellow));
                 break;
             }
-            case R.id.imvSearchMenu:{
+            case R.id.imvSearchMenu: {
                 //show fragment
                 SearchMenuFragment searchMenuFragment = new SearchMenuFragment();
-                FragmentManager manager=getSupportFragmentManager();
+                FragmentManager manager = getSupportFragmentManager();
                 manager.beginTransaction()
                         .replace(R.id.layout_show_menu, searchMenuFragment, searchMenuFragment.getTag())
                         .commit();
@@ -322,10 +355,10 @@ public class MainActivityNew extends AppCompatActivity implements View.OnClickLi
                 arrImageView[2].setImageDrawable(getResources().getDrawable(R.drawable.ic_search_yellow));
                 break;
             }
-            case R.id.imvCateMenu:{
+            case R.id.imvCateMenu: {
                 //show fragment
                 CategogMenuFragment cateMenuFragment = new CategogMenuFragment();
-                FragmentManager manager=getSupportFragmentManager();
+                FragmentManager manager = getSupportFragmentManager();
                 manager.beginTransaction()
                         .replace(R.id.layout_show_menu, cateMenuFragment, cateMenuFragment.getTag())
                         .commit();
@@ -334,10 +367,10 @@ public class MainActivityNew extends AppCompatActivity implements View.OnClickLi
                 arrImageView[3].setImageDrawable(getResources().getDrawable(R.drawable.ic_categogy_yellow));
                 break;
             }
-            case R.id.imvLegisMenu:{
+            case R.id.imvLegisMenu: {
                 //show fragment
                 LegislationMenuFragment legisMenuFragment = new LegislationMenuFragment();
-                FragmentManager manager=getSupportFragmentManager();
+                FragmentManager manager = getSupportFragmentManager();
                 manager.beginTransaction()
                         .replace(R.id.layout_show_menu, legisMenuFragment, legisMenuFragment.getTag())
                         .commit();
@@ -346,40 +379,42 @@ public class MainActivityNew extends AppCompatActivity implements View.OnClickLi
                 arrImageView[4].setImageDrawable(getResources().getDrawable(R.drawable.ic_legislation_yellow));
                 break;
             }
-            case R.id.imvContactMenu:{
+            case R.id.imvContactMenu: {
 
             }
-            case R.id.imvExitMenu:{
+            case R.id.imvExitMenu: {
 
                 break;
             }
-            default:break;
+            default:
+                break;
         }
 
     }
-    private void setDefaultIconMenu(){
-        int index =0;
-        for(index =0;index<arrImageView.length;index++){
-            switch (index){
-                case 0:{
+
+    private void setDefaultIconMenu() {
+        int index = 0;
+        for (index = 0; index < arrImageView.length; index++) {
+            switch (index) {
+                case 0: {
                     break;
                 }
-                case 1:{
+                case 1: {
                     arrImageView[1].setImageDrawable(getResources().getDrawable(R.drawable.ic_intro_circle));
                 }
-                case 2:{
+                case 2: {
                     arrImageView[2].setImageDrawable(getResources().getDrawable(R.drawable.ic_search_circle));
                 }
-                case 3:{
+                case 3: {
                     arrImageView[3].setImageDrawable(getResources().getDrawable(R.drawable.ic_categogy_circle));
                 }
-                case 4:{
+                case 4: {
                     arrImageView[4].setImageDrawable(getResources().getDrawable(R.drawable.ic_legislation_circle));
                 }
-                case 5:{
+                case 5: {
                     arrImageView[5].setImageDrawable(getResources().getDrawable(R.drawable.ic_contact_circle));
                 }
-                case 6:{
+                case 6: {
 
                 }
             }

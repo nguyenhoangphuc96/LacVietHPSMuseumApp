@@ -23,7 +23,6 @@
         android:layout_height="match_parent">
         <ImageView
             android:id="@+id/imvHomeMenu"
-            android:layout_margin="11dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/ic_home_circle"/>
@@ -34,7 +33,7 @@
             android:layout_height="match_parent">
             <ImageView
                 android:id="@+id/imvIntroMenu"
-                android:layout_margin="11dp"
+
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/ic_intro_circle"/>
@@ -45,7 +44,7 @@
             android:layout_height="match_parent">
             <ImageView
                 android:id="@+id/imvSearchMenu"
-                android:layout_margin="11dp"
+
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/ic_search_circle"/>
@@ -56,7 +55,7 @@
             android:layout_height="match_parent">
             <ImageView
                 android:id="@+id/imvCateMenu"
-                android:layout_margin="11dp"
+
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/ic_categogy_circle"/>
@@ -67,7 +66,7 @@
             android:layout_height="match_parent">
             <ImageView
                 android:id="@+id/imvLegisMenu"
-                android:layout_margin="11dp"
+
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/ic_legislation_circle"/>
@@ -96,7 +95,7 @@
             android:layout_height="match_parent">
             <ImageView
                 android:id="@+id/imvContactMenu"
-                android:layout_margin="11dp"
+
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/ic_contact_circle"/>
@@ -107,7 +106,7 @@
             android:layout_height="match_parent">
             <ImageView
                 android:id="@+id/imvExitMenu"
-                android:layout_margin="11dp"
+
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/ic_exit_circle"/>

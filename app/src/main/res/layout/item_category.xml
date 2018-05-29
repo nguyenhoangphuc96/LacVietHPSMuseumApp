@@ -82,7 +82,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_see"
+                        android:src="@drawable/ic_x"
                         />
                     <TextView
                         android:id="@+id/tvExhibitSee"
@@ -103,7 +103,7 @@
                         android:layout_marginLeft="5dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_heart" />
+                        android:src="@drawable/ic_x" />
                     <TextView
                         android:id="@+id/tvExhibitHeart"
                         android:layout_width="wrap_content"
