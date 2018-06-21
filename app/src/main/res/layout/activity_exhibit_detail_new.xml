@@ -4,7 +4,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorWhite">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,16 +26,29 @@
 
                 android:textAppearance="@style/TextTitleGlobalWhite"
                 android:layout_gravity="start"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                >
+
+                <TextView
+                    android:id="@+id/tvShow3DImg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border_button_bluelight"
+                    android:gravity="center"
+                    android:paddingVertical="@dimen/button_bluelight_padding_vertical"
+                    android:layout_marginEnd="@dimen/textview_blue_light_paddingright"
+                    android:text="Xem ảnh 3D"
+                    android:textAppearance="@style/TextTitleCategogyDialog" />
+            </LinearLayout>
 
         </android.support.v7.widget.Toolbar>
     </LinearLayout>
-    <LinearLayout
-        android:weightSum="100"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+
         <LinearLayout
-            android:layout_weight="10"
+
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -51,8 +65,8 @@
                     android:scrollbars="horizontal"
                     android:background="@color/colorWhite"
                     app:tabTextAppearance="@style/TextTabName"
-                    app:tabIndicatorColor="@color/colorOrange"
-                    app:tabSelectedTextColor="@color/colorOrange"
+                    app:tabIndicatorColor="@color/colorBlueLight"
+                    app:tabSelectedTextColor="@color/colorBlueLight"
                     app:tabMode="scrollable"
                     >
 
@@ -102,24 +116,7 @@
                 android:layout_height="match_parent"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior" />
         </LinearLayout>
-        <LinearLayout
-            android:layout_weight="90"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/colorWhite"
-            android:gravity="center"
-            android:layout_margin="10dp"
-            >
-            <TextView
-                android:id="@+id/tvSameExhibit"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="HIỆN VẬT TƯƠNG TỰ"
-                android:textAppearance="@style/TextTitleButtonBlue"
-                android:background="@drawable/border_button_bluelight"
-                android:gravity="center"/>
 
-        </LinearLayout>
-    </LinearLayout>
+
 
 </LinearLayout>

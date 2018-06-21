@@ -87,18 +87,23 @@
             android:layout_weight="10"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_weight="10"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
             <ImageView
                 android:id="@+id/imvContactMenu"
 
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/ic_contact_circle"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_weight="10"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/imvConfig"
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_config_circle"/>
         </LinearLayout>
         <LinearLayout
             android:layout_weight="10"

@@ -50,7 +50,7 @@ public class InfoDetailFragment extends Fragment {
     private void showDataToView() {
         // Set up the ViewPager with the sections adapter.
         FragmentManager manager = getActivity().getSupportFragmentManager();
-        InfoDetailPagerAdapter adapter = new InfoDetailPagerAdapter(manager);
+        InfoDetailPagerAdapter adapter = new InfoDetailPagerAdapter(manager,getContext());
         pager.setAdapter(adapter);
         tabLayout.setupWithViewPager(pager);
         pager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorWhite"
@@ -13,20 +13,7 @@
             android:weightSum="100"
             android:orientation="vertical"
             android:paddingTop="20dp"
-            android:paddingLeft="10dp">
-            <LinearLayout
-                android:layout_weight="90"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingBottom="10dp"
-                android:paddingLeft="7dp">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="THÔNG TIN THẨM ĐỊNH"
-                    android:textAppearance="@style/TextTitleDetailBlue"
-                    android:gravity="center|start"/>
-            </LinearLayout>
+            android:paddingLeft="@dimen/info_detail_textview_paddingleft">
             <LinearLayout
                 android:layout_weight="10"
                 android:layout_width="match_parent"
@@ -36,17 +23,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:padding="7dp">
+                    android:padding="@dimen/info_detail_textview_paddingleft">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Ngày đăng kí: "
                         android:textAppearance="@style/TextListInfoDetailGray"/>
                     <TextView
-                        android:id="@+id/tvExhibitName"
+                        android:id="@+id/tvVerifiDate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Võng"
+                        android:text="Updating.."
                         android:textAppearance="@style/TextListInfoDetailBlack"/>
 
                 </LinearLayout>
@@ -54,17 +41,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:padding="7dp">
+                    android:padding="@dimen/info_detail_textview_paddingleft">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Ngày giám định: "
                         android:textAppearance="@style/TextListInfoDetailGray"/>
                     <TextView
-                        android:id="@+id/tvOtherName"
+                        android:id="@+id/tvExpertiseDate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Võng"
+                        android:text="Updating.."
                         android:textAppearance="@style/TextListInfoDetailBlack"/>
 
                 </LinearLayout>
@@ -72,17 +59,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:padding="7dp">
+                    android:padding="@dimen/info_detail_textview_paddingleft">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Hội đồng giám định: "
                         android:textAppearance="@style/TextListInfoDetailGray"/>
                     <TextView
-                        android:id="@+id/tvMaterialName"
+                        android:id="@+id/tvExpertise"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Võng"
+                        android:text="Updating.."
                         android:textAppearance="@style/TextListInfoDetailBlack"/>
 
                 </LinearLayout>
@@ -90,17 +77,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:padding="7dp">
+                    android:padding="@dimen/info_detail_textview_paddingleft">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Niên đại: "
                         android:textAppearance="@style/TextListInfoDetailGray"/>
                     <TextView
-                        android:id="@+id/tvStuff"
+                        android:id="@+id/tvAges"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Võng"
+                        android:text="Updating.."
                         android:textAppearance="@style/TextListInfoDetailBlack"/>
 
                 </LinearLayout>
@@ -108,17 +95,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:padding="7dp">
+                    android:padding="@dimen/info_detail_textview_paddingleft">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Nguồn gốc: "
                         android:textAppearance="@style/TextListInfoDetailGray"/>
                     <TextView
-                        android:id="@+id/tvNumber"
+                        android:id="@+id/tvSource"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Võng"
+                        android:text="Updating.."
                         android:textAppearance="@style/TextListInfoDetailBlack"/>
 
                 </LinearLayout>
@@ -126,17 +113,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:padding="7dp">
+                    android:padding="@dimen/info_detail_textview_paddingleft">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Ghi chú nguồn gốc: "
                         android:textAppearance="@style/TextListInfoDetailGray"/>
                     <TextView
-                        android:id="@+id/tvField"
+                        android:id="@+id/tvNoteSource"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Võng"
+                        android:text="Updating.."
                         android:textAppearance="@style/TextListInfoDetailBlack"/>
 
                 </LinearLayout>
@@ -144,17 +131,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:padding="7dp">
+                    android:padding="@dimen/info_detail_textview_paddingleft">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Thời kì: "
                         android:textAppearance="@style/TextListInfoDetailGray"/>
                     <TextView
-                        android:id="@+id/tvCodeID"
+                        android:id="@+id/tvTime"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Võng "
+                        android:text="Updating.. "
                         android:textAppearance="@style/TextListInfoDetailBlack"/>
 
                 </LinearLayout>
@@ -162,17 +149,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:padding="7dp">
+                    android:padding="@dimen/info_detail_textview_paddingleft">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Ghi chú thời kì: "
                         android:textAppearance="@style/TextListInfoDetailGray"/>
                     <TextView
-                        android:id="@+id/tvElement"
+                        android:id="@+id/tvNoteTime"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Võng "
+                        android:text="Updating.. "
                         android:textAppearance="@style/TextListInfoDetailBlack"/>
 
                 </LinearLayout>
@@ -180,8 +167,15 @@
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
+    <ProgressBar
+        android:id="@+id/viewProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:indeterminateDrawable="@drawable/my_progress"
+        android:visibility="gone"/>
 
 
 
 
-</LinearLayout>
+</RelativeLayout>

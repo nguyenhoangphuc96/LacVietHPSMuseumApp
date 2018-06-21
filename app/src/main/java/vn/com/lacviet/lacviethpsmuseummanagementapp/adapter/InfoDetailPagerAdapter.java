@@ -1,8 +1,15 @@
 package vn.com.lacviet.lacviethpsmuseummanagementapp.adapter;
 
+import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.content.res.ResourcesCompat;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.ImageSpan;
 
 import vn.com.lacviet.lacviethpsmuseummanagementapp.DetailScreen.TabExpertiseFragment;
 import vn.com.lacviet.lacviethpsmuseummanagementapp.DetailScreen.TabGeneralInfoFragment;
@@ -10,11 +17,14 @@ import vn.com.lacviet.lacviethpsmuseummanagementapp.DetailScreen.TabHistoryFragm
 import vn.com.lacviet.lacviethpsmuseummanagementapp.DetailScreen.TabLocationFragment;
 import vn.com.lacviet.lacviethpsmuseummanagementapp.DetailScreen.TabPropertieFragment;
 import vn.com.lacviet.lacviethpsmuseummanagementapp.DetailScreen.TabSupplierFragment;
+import vn.com.lacviet.lacviethpsmuseummanagementapp.R;
 
 public class InfoDetailPagerAdapter extends FragmentStatePagerAdapter {
+    private Context context;
 
-    public InfoDetailPagerAdapter(FragmentManager fragmentManager) {
+    public InfoDetailPagerAdapter(FragmentManager fragmentManager,Context context) {
         super(fragmentManager);
+        this.context = context;
     }
     @Override
     public Fragment getItem(int position) {
@@ -51,24 +61,26 @@ public class InfoDetailPagerAdapter extends FragmentStatePagerAdapter {
         String title = "";
         switch (position){
             case 0:
-                title = "THÔNG TIN CHUNG";
+                title = "Thông tin chung";
                 break;
             case 1:
-                title = "THẨM ĐỊNH";
+                title = "Thẩm định";
                 break;
             case 2:
-                title = "LƯU GIỮ";
+                title = "Lưu giữ";
                 break;
             case 3:
-                title = "THUỘC TÍNH";
+                title = "Thuộc tính";
                 break;
             case 4:
-                title = "NGUỒN CUNG CẤP";
+                title = "Nguồn cung cấp";
                 break;
             case 5:
-                title = "LỊCH SỬ";
+                title = "Lịch sử";
                 break;
         }
         return title;
     }
+
+
 }

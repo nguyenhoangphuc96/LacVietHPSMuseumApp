@@ -11,11 +11,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import vn.com.lacviet.lacviethpsmuseummanagementapp.R;
-import vn.com.lacviet.lacviethpsmuseummanagementapp.adapter.ImageDetailPagerAdapter;
+import vn.com.lacviet.lacviethpsmuseummanagementapp.adapter.OldImageDetailPagerAdapter;
 
 public class ImageDetailFragment extends Fragment {
     private ViewPager mViewPager;
-    private ImageDetailPagerAdapter mPagerAdapter;
+    private OldImageDetailPagerAdapter mPagerAdapter;
     private LinearLayout mDotsLayout;
     private TextView[] mDots;
     private int[] mLayouts;
@@ -38,7 +38,7 @@ public class ImageDetailFragment extends Fragment {
     }
 
     private void showDataToView() {
-        mPagerAdapter = new ImageDetailPagerAdapter(getContext(),mLayouts);
+        mPagerAdapter = new OldImageDetailPagerAdapter(getContext(),mLayouts);
         mViewPager.setAdapter(mPagerAdapter);
         mViewPager.addOnPageChangeListener(mViewPagerChangeListener);
     }

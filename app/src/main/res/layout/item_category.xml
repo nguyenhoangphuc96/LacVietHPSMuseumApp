@@ -22,7 +22,7 @@
                 android:layout_height="match_parent"
                 android:id="@+id/imgExhibit"
                 android:scaleType="fitXY"
-                android:src="@drawable/img_trong_nhac"
+
                 />
         </LinearLayout>
 

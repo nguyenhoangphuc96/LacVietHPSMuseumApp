@@ -22,12 +22,14 @@
         android:layout_weight="15"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingLeft="15dp">
+        android:paddingLeft="@dimen/paddingleft_list_menu_chil">
         <LinearLayout
 
             android:layout_width="match_parent"
-            android:layout_height="40dp">
+            android:layout_height="@dimen/height_list_menu_chil"
+            android:background="?android:attr/selectableItemBackground">
             <TextView
+                android:id="@+id/tvIntro"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Giới thiệu chung"
@@ -39,8 +41,10 @@
         <LinearLayout
 
             android:layout_width="match_parent"
-            android:layout_height="40dp">
+            android:layout_height="@dimen/height_list_menu_chil"
+            android:background="?android:attr/selectableItemBackground">
             <TextView
+                android:id="@+id/tvHistory"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Lịch sử hình thành"
@@ -52,8 +56,10 @@
         <LinearLayout
 
             android:layout_width="match_parent"
-            android:layout_height="40dp">
+            android:layout_height="@dimen/height_list_menu_chil"
+            android:background="?android:attr/selectableItemBackground">
             <TextView
+                android:id="@+id/tvOrganizational"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Cơ cấu tổ chức"
@@ -65,8 +71,11 @@
         <LinearLayout
 
             android:layout_width="match_parent"
-            android:layout_height="40dp">
+            android:layout_height="@dimen/height_list_menu_chil"
+            android:background="?android:attr/selectableItemBackground"
+            >
             <TextView
+                android:id="@+id/tvContact"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Thông tin liên hệ"

@@ -15,12 +15,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import vn.com.lacviet.lacviethpsmuseummanagementapp.R;
-import vn.com.lacviet.lacviethpsmuseummanagementapp.adapter.ExhibitCategoryRecyclerViewAdapter;
+import vn.com.lacviet.lacviethpsmuseummanagementapp.adapter.OldExhibitCategoryRecyclerViewAdapter;
 import vn.com.lacviet.lacviethpsmuseummanagementapp.model.ExhibitModels;
 
 public class ExhibitOfCategoryActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
-    private ExhibitCategoryRecyclerViewAdapter adapterCategory;
+    private OldExhibitCategoryRecyclerViewAdapter adapterCategory;
     private RecyclerView.LayoutManager layoutManager;
     private List<ExhibitModels> listExhibit;
     private SpeedDialView speedDialView;
@@ -98,7 +98,7 @@ public class ExhibitOfCategoryActivity extends AppCompatActivity {
     }
 
     private void showRecyclerView() {
-        adapterCategory = new ExhibitCategoryRecyclerViewAdapter(this,listExhibit);
+        adapterCategory = new OldExhibitCategoryRecyclerViewAdapter(this,listExhibit);
 
         //LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         //layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
@@ -110,7 +110,7 @@ public class ExhibitOfCategoryActivity extends AppCompatActivity {
     }
 
     private void addData() {
-        listExhibit = new ArrayList<>();
+       /* listExhibit = new ArrayList<>();
         listExhibit.add(new ExhibitModels(1,"Trống nhạc","Trống nhạc là hiện vật do Toà thánh Ngọc Sắc trao tặng...",R.drawable.img_trong_nhac,"740","145" ));
         listExhibit.add(new ExhibitModels(2,"Trống nhạc","Trống nhạc là hiện vật do Toà thánh Ngọc Sắc trao tặng...",R.drawable.img_binhtra,"740","145" ));
         listExhibit.add(new ExhibitModels(3,"Trống nhạc","Trống nhạc là hiện vật do Toà thánh Ngọc Sắc trao tặng...",R.drawable.img_trong_nhac,"740","145" ));
@@ -118,7 +118,7 @@ public class ExhibitOfCategoryActivity extends AppCompatActivity {
         listExhibit.add(new ExhibitModels(5,"Trống nhạc","Trống nhạc là hiện vật do Toà thánh Ngọc Sắc trao tặng...",R.drawable.img_binhtra,"740","145" ));
         listExhibit.add(new ExhibitModels(6,"Trống nhạc","Trống nhạc là hiện vật do Toà thánh Ngọc Sắc trao tặng...",R.drawable.img_trong_nhac,"740","145" ));
         listExhibit.add(new ExhibitModels(7,"Trống nhạc","Trống nhạc là hiện vật do Toà thánh Ngọc Sắc trao tặng...",R.drawable.img_trong_nhac,"740","145" ));
-        listExhibit.add(new ExhibitModels(8,"Trống nhạc","Trống nhạc là hiện vật do Toà thánh Ngọc Sắc trao tặng...",R.drawable.img_trong_nhac,"740","145" ));
+        listExhibit.add(new ExhibitModels(8,"Trống nhạc","Trống nhạc là hiện vật do Toà thánh Ngọc Sắc trao tặng...",R.drawable.img_trong_nhac,"740","145" ));*/
     }
 
     private void addControls() {

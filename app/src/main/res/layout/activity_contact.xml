@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:id="@+id/loToolBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbarContact"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorBackgroundToolbarBlue"
+            app:title="Thông tin liên hệ"
+            app:theme="@style/MyToolbarStyle"
+
+
+            >
+
+            <TextView
+                android:id="@+id/tvTitleContactToolbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:textAppearance="@style/TextTitleGlobalWhite" />
+
+        </android.support.v7.widget.Toolbar>
+    </RelativeLayout>
+    <LinearLayout
+        android:weightSum="100"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_weight="24"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/img_panarama"
+                android:scaleType="fitXY"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_weight="29"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorBackgroundGray"
+            android:orientation="horizontal"
+            android:weightSum="100">
+            <LinearLayout
+                android:layout_weight="33.3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:weightSum="100">
+                <ImageView
+                    android:layout_weight="40"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_call_bluelight"/>
+                <TextView
+                    android:layout_weight="60"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center|top"
+                    android:text="CALL"
+                    android:textAppearance="@style/TextCallLikeShare"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_weight="33.4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:weightSum="100">
+                <ImageView
+                    android:layout_weight="40"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_like_bluelight"/>
+                <TextView
+                    android:layout_weight="60"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center|top"
+                    android:text="LIKE"
+                    android:textAppearance="@style/TextCallLikeShare"/>
+
+            </LinearLayout>
+            <LinearLayout
+            android:layout_weight="33.3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="100">
+            <ImageView
+                android:layout_weight="40"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_share_bluelight"/>
+            <TextView
+                android:layout_weight="60"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center|top"
+                android:text="SHARE"
+                android:textAppearance="@style/TextCallLikeShare"/>
+
+        </LinearLayout>
+
+        </LinearLayout>
+        <RelativeLayout
+            android:padding="@dimen/padding_web_view"
+            android:orientation="vertical"
+            android:layout_weight="16.7"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorWhite"
+            >
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <WebView
+                    android:id="@+id/wvContact"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                </WebView>
+            </ScrollView>
+
+            <ProgressBar
+                android:id="@+id/pbContact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:elevation="2dp"
+                android:visibility="visible"
+                android:indeterminateTint="@color/colorBlueLight"
+                android:indeterminateTintMode="src_in"/>
+
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_weight="30.3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorWhite"
+            android:gravity="center"
+            android:layout_margin="@dimen/margin_button_bluelight"
+            >
+            <TextView
+                android:id="@+id/tvShowMap"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="XEM BẢN ĐỒ"
+                android:textAppearance="@style/TextTitleButtonBlue"
+                android:background="@drawable/border_button_bluelight"
+                android:gravity="center"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

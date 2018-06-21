@@ -22,7 +22,7 @@
             android:theme="@style/AppTheme.AppBarOverlay">
 
             <android.support.design.widget.TabLayout
-                android:id="@+id/tabLayoutDetail"
+                android:id="@+id/tabLayoutDetailOldVer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:scrollbars="horizontal"

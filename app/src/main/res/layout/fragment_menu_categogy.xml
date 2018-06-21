@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,52 +7,50 @@
     android:background="@color/colorBackgroundNavigation"
     android:weightSum="100">
     <LinearLayout
-        android:layout_weight="85"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <TextView
-            android:text="Danh mục"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:textAppearance="@style/TextTitleMenu"/>
-    </LinearLayout>
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_weight="15"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingLeft="15dp">
+        android:orientation="vertical"
+        android:background="@color/colorBackgroundNavigation"
+        android:weightSum="100">
         <LinearLayout
-
+            android:layout_weight="85"
             android:layout_width="match_parent"
-            android:layout_height="40dp">
+            android:layout_height="match_parent">
             <TextView
+                android:text="Danh mục"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Đồ dệt"
-                android:gravity="start|center_vertical"
-                android:textAppearance="@style/TextTitleMenuChil"
-                />
-
+                android:gravity="center"
+                android:textAppearance="@style/TextTitleMenu"/>
         </LinearLayout>
         <LinearLayout
-
+            android:orientation="vertical"
+            android:layout_weight="15"
             android:layout_width="match_parent"
-            android:layout_height="40dp">
-            <TextView
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/paddingleft_list_menu_chil">
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rcvCategogyNameMenu"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Nên làm listview =]]"
-                android:gravity="start|center_vertical"
-                android:textAppearance="@style/TextTitleMenuChil"
-                />
+                android:layout_height="match_parent">
+
+            </android.support.v7.widget.RecyclerView>
+
+
+
 
         </LinearLayout>
-
-
-
     </LinearLayout>
 
 
-</LinearLayout>
+    <ProgressBar
+        android:id="@+id/pbCategogyMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:elevation="2dp"
+        android:visibility="visible"
+        android:indeterminateTint="@color/colorBlueLight"
+        android:indeterminateTintMode="src_in"/>
+
+</RelativeLayout>

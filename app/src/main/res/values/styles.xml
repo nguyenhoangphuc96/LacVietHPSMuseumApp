@@ -20,36 +20,34 @@
     </style>
 
     <style name="TextSearchBox" parent="@style/TextAppearance.Design.Counter">
-        <item name="android:textSize">15sp</item>
-        <item name="android:textColor">@color/colorTextSearchBox</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#FFFFFF</item>
         <item name="android:textStyle">italic</item>
     </style>
 
     <style name="TextTitleGlobalWhite" parent="@style/TextAppearance.Design.Counter">
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">17sp</item>
         <item name="android:textColor">#FFFFFF</item>
 
     </style>
     <style name="TextTitleDetailBlue" parent="@style/TextAppearance.Design.Counter">
-        <item name="android:textSize">19sp</item>
-        <item name="android:textColor">#1777AA</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/colorBlueLight</item>
 
     </style>
     <style name="TextListInfoDetailGray" parent="@style/TextAppearance.Design.Counter">
-        <item name="android:textSize">17sp</item>
+        <item name="android:textSize">14sp</item>
         <item name="android:textColor">@color/colorGrayforText</item>
 
     </style>
     <style name="TextListInfoDetailBlack" parent="@style/TextAppearance.Design.Counter">
-        <item name="android:textSize">17sp</item>
+        <item name="android:textSize">14sp</item>
         <item name="android:textColor">@color/colorBlack</item>
 
     </style>
     <style name="TextTabName" parent="@style/TextAppearance.Design.Counter">
-        <item name="android:textSize">17sp</item>
+        <item name="android:textSize">16sp</item>
         <item name="android:textColor">@color/colorGrayforText</item>
-        <item name="android:textAllCaps">true</item>
-        <item name="android:textStyle">bold</item>
 
     </style>
     <style name="TextTitleButtonBlue" parent="@style/TextAppearance.Design.Counter">
@@ -60,7 +58,7 @@
         <item name="android:background">@drawable/fab_label_background</item>
         <item name="android:textColor">@color/colorWhite</item>
     </style>
-    <style name="TextListCategogySpinner" parent="@style/TextAppearance.Design.Counter">
+    <style name="TextListCategogy" parent="@style/TextAppearance.Design.Counter">
         <item name="android:textSize">13sp</item>
         <item name="android:textColor">#000000</item>
 
@@ -82,11 +80,49 @@
     <style name="CustomDialog" parent="android:Theme.Dialog">
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowMinWidthMajor">80%</item>
+        <item name="android:windowMinWidthMinor">80%</item>
+    </style>
+    <style name="ExhibitNameMainscreen" parent="TextAppearance.Design.Counter">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="ExhibitDescriptionMainscreen" parent="TextAppearance.Design.Counter">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/colorTextDecriptionGray</item>
+    </style>
+    <style name="CustomProgressDialog" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowTitleStyle">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+    <style name="MyToolbarStyle" parent="AppTheme">
+        <item name="android:textColorSecondary">@color/colorWhite</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="TextCallLikeShare" parent="@style/TextAppearance.Design.Counter">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/colorBlueLight</item>
+
+    </style>
+    <style name="TextHeaderExpListView" parent="@style/TextAppearance.Design.Counter">
+    <item name="android:textSize">14sp</item>
+    <item name="android:textColor">#000000</item>
+    </style>
+    <style name="TextItemExpListView" parent="@style/TextAppearance.Design.Counter">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">#000000</item>
+    </style>
 
 
 </resources>

@@ -1,38 +1,21 @@
 package vn.com.lacviet.lacviethpsmuseummanagementapp.model;
 
 public class RowItemModels {
-
-    private int ImageId;
     private String Title;
 
-    public RowItemModels(String Title,int ImageId){
-
-        this.Title = Title;
-        this.ImageId = ImageId;
+    public RowItemModels() {
     }
 
-    public String getTitle(){
+    public RowItemModels(String title) {
+        Title = title;
+    }
 
+    public String getTitle() {
         return Title;
     }
 
-    public void setTitle(String Title){
-
-        this.Title = Title;
-    }
-
-    public int getImageId(){
-
-        return ImageId;
-    }
-
-    public void setImageId(int ImageId){
-
-        this.ImageId = ImageId;
-    }
-
-    @Override
-    public String toString() {
-        return Title ;
+    public void setTitle(String title) {
+        Title = title;
     }
 }
+

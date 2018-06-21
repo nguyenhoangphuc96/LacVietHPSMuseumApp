@@ -8,6 +8,23 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <!--<ProgressBar
+            android:id="@+id/viewProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:indeterminateDrawable="@drawable/my_progress"
+            android:visibility="visible"/>-->
+        <ProgressBar
+            android:id="@+id/pbMainScreen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:elevation="2dp"
+            android:visibility="visible"
+            android:indeterminateTint="@color/colorBlueLight"
+            android:indeterminateTintMode="src_in"
+            />
 
         <android.support.v4.widget.DrawerLayout
             android:id="@+id/drawerLayout"
@@ -47,7 +64,6 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_margin="4dp"
                     android:background="@drawable/border_recyclerview_mainscreen_white"
                     android:paddingTop="20dp">
 
@@ -56,7 +72,8 @@
                         android:id="@+id/rcvMainScreen"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:padding="4dp">
+                        android:padding="@dimen/padding_recyclerview"
+                        android:clickable="true">
 
                     </android.support.v7.widget.RecyclerView>
                 </LinearLayout>
@@ -80,7 +97,7 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true">
             <TextView
-                android:paddingVertical="5dp"
+                android:paddingVertical="@dimen/paddingverhicle_border_button_bluelight"
                 android:drawableRight="@drawable/ic_down_24px"
                 android:id="@+id/txtTitleCategory"
                 android:layout_width="wrap_content"
@@ -91,27 +108,4 @@
                 android:background="@drawable/border_button_bluelight"/>
         </RelativeLayout>
     </RelativeLayout>
-
-    <com.leinardi.android.speeddial.SpeedDialOverlayLayout
-        android:id="@+id/overlay"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/transparent80Black"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
-
-    <com.leinardi.android.speeddial.SpeedDialView
-        android:id="@+id/fabMainscreen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_gravity="bottom|right"
-        app:layout_behavior="@string/speeddial_scrolling_view_snackbar_behavior"
-        app:sdExpansionMode="top"
-        app:sdMainFabClosedBackgroundColor="@color/colorBlueLight"
-        app:sdMainFabClosedSrc="@drawable/ic_menu"
-        app:sdMainFabOpenedBackgroundColor="@color/colorBlueLight"
-        app:sdMainFabOpenedSrc="@drawable/ic_x"
-        app:sdOverlayLayout="@id/overlay" />
-
 </android.support.design.widget.CoordinatorLayout>

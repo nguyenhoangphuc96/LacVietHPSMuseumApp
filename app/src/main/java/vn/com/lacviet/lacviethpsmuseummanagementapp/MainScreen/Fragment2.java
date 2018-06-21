@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import vn.com.lacviet.lacviethpsmuseummanagementapp.R;
-import vn.com.lacviet.lacviethpsmuseummanagementapp.adapter.ExhibitCollectionRecyclerViewAdapter;
+import vn.com.lacviet.lacviethpsmuseummanagementapp.adapter.OldExhibitCollectionRecyclerViewAdapter;
 
 
 /**
@@ -22,7 +22,7 @@ import vn.com.lacviet.lacviethpsmuseummanagementapp.adapter.ExhibitCollectionRec
  */
 public class Fragment2 extends Fragment implements View.OnClickListener {
     private RecyclerView recyclerView;
-    private ExhibitCollectionRecyclerViewAdapter adapterCollection;
+    private OldExhibitCollectionRecyclerViewAdapter adapterCollection;
     private List<Integer> listImageExhibit;
     private int arrTextViewId[] = {R.id.tvTitleCollection1,R.id.tvTitleCollection2,R.id.tvTitleCollection3,R.id.tvTitleCollection4};
     private TextView arrTextView[] = new TextView[arrTextViewId.length];
@@ -47,7 +47,7 @@ public class Fragment2 extends Fragment implements View.OnClickListener {
     }
 
     private void showRecyclerView() {
-        adapterCollection = new ExhibitCollectionRecyclerViewAdapter(getContext(),listImageExhibit);
+        adapterCollection = new OldExhibitCollectionRecyclerViewAdapter(getContext(),listImageExhibit);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
@@ -57,13 +57,13 @@ public class Fragment2 extends Fragment implements View.OnClickListener {
     }
 
     private void addDataRecyclerView() {
-        listImageExhibit = new ArrayList<>();
+        /*listImageExhibit = new ArrayList<>();
         listImageExhibit.add(R.drawable.img_chen);
         listImageExhibit.add(R.drawable.img_binhtra);
         listImageExhibit.add(R.drawable.img_dia);
         listImageExhibit.add(R.drawable.img_trong_nhac);
         listImageExhibit.add(R.drawable.img_binh);
-        listImageExhibit.add(R.drawable.img_binhtra);
+        listImageExhibit.add(R.drawable.img_binhtra);*/
 
     }
 

@@ -11,4 +11,16 @@
     <dimen name="slide_desc">16dp</dimen>
     <dimen name="desc_padding">40dp</dimen>
     <dimen name="appbar_padding_top">8dp</dimen>
+    <dimen name="cardview_corner_radius">10dp</dimen>
+    <dimen name="button_bluelight_padding_vertical">5dp</dimen>
+    <dimen name="info_detail_textview_paddingleft">7dp</dimen>
+    <dimen name="textview_blue_light_paddingright">5dp</dimen>
+    <dimen name="height_list_menu_chil">40dp</dimen>
+    <dimen name="paddingleft_list_menu_chil">15dp</dimen>
+    <dimen name="paddingverhicle_border_button_bluelight">5dp</dimen>
+    <dimen name="padding_recyclerview">4dp</dimen>
+    <dimen name="padding_spinner_advanced_search">10dp</dimen>
+    <dimen name="margin_button_bluelight">10dp</dimen>
+    <dimen name="padding_web_view">10dp</dimen>
+    <dimen name="margin_edittext_config_screen">10dp</dimen>
 </resources>

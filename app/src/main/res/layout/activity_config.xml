@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/img_background_config"
+    android:orientation="vertical"
+    >
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_margin="@dimen/margin_edittext_config_screen"
+            android:layout_gravity="start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border_edittext_search_transparent"
+            android:focusableInTouchMode="true"
+            android:focusable="true"
+            >
+            <TextView
+                android:background="@null"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CẤU HÌNH CƠ SỞ DỮ LIỆU: "
+                android:textAppearance="@style/TextTitleButtonBlue"
+                android:padding="@dimen/margin_edittext_config_screen"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginHorizontal="@dimen/margin_edittext_config_screen"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border_edittext_search_transparent"
+            android:focusableInTouchMode="true"
+            android:focusable="true" >
+            <EditText
+                android:id="@+id/edtConfig"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:inputType="text"
+                android:drawableLeft="@drawable/ic_config"
+                android:drawablePadding="@dimen/margin_edittext_config_screen"
+                android:background="@null"
+                android:textAppearance="@style/TextSearchBox"
+                android:hint="Nhập địa chỉ cấu hình"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorWhite"
+                android:padding="@dimen/paddingverhicle_border_button_bluelight"
+                android:textCursorDrawable="@drawable/cursor_drawable"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            >
+
+            <TextView
+                android:paddingHorizontal="50dp"
+                android:id="@+id/tvOK"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border_button_bluelight"
+                android:gravity="center"
+                android:layout_marginEnd="@dimen/textview_blue_light_paddingright"
+                android:text="OK"
+                android:textAppearance="@style/TextTitleCategogyDialog" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+</LinearLayout>

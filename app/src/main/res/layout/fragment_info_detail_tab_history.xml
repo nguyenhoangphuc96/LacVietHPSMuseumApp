@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorWhite"
@@ -13,20 +13,7 @@
             android:weightSum="100"
             android:orientation="vertical"
             android:paddingTop="20dp"
-            android:paddingLeft="10dp">
-            <LinearLayout
-                android:layout_weight="90"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingBottom="10dp"
-                android:paddingLeft="7dp">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="NỘI DUNG LỊCH SỬ"
-                    android:textAppearance="@style/TextTitleDetailBlue"
-                    android:gravity="center|start"/>
-            </LinearLayout>
+            android:paddingLeft="@dimen/info_detail_textview_paddingleft">
             <LinearLayout
                 android:layout_weight="10"
                 android:layout_width="match_parent"
@@ -36,17 +23,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:padding="7dp">
+                    android:padding="@dimen/info_detail_textview_paddingleft">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Nội dung lịch sử: "
                         android:textAppearance="@style/TextListInfoDetailGray"/>
                     <TextView
-                        android:id="@+id/tvExhibitName"
+                        android:id="@+id/tvContent"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Võng"
+                        android:text="Updating.."
                         android:textAppearance="@style/TextListInfoDetailBlack"/>
 
                 </LinearLayout>
@@ -54,8 +41,14 @@
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
+    <ProgressBar
+        android:id="@+id/viewProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:indeterminateDrawable="@drawable/my_progress"
+        android:visibility="gone"/>
 
 
 
-
-</LinearLayout>
+</RelativeLayout>

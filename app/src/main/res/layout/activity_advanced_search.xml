@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        >
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbarAdvancedSearch"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorBackgroundToolbarBlue"
+            app:title="Tra cứu nâng cao"
+            >
+
+            <TextView
+                android:id="@+id/tvTitleToolbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:textAppearance="@style/TextTitleGlobalWhite" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                >
+
+                <TextView
+                    android:id="@+id/tvSearch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border_button_bluelight"
+                    android:gravity="center"
+                    android:layout_marginEnd="@dimen/textview_blue_light_paddingright"
+                    android:paddingVertical="@dimen/button_bluelight_padding_vertical"
+                    android:text="Tìm"
+                    android:textAppearance="@style/TextTitleCategogyDialog" />
+            </LinearLayout>
+
+
+        </android.support.v7.widget.Toolbar>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorBackgroundToolbarBlue"
+
+        >
+        <LinearLayout
+            android:weightSum="100"
+            android:orientation="horizontal"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border_edittext_search"
+            android:focusableInTouchMode="true"
+            android:focusable="true"
+
+            android:layout_marginHorizontal="10dp"
+            >
+            <LinearLayout
+                android:layout_weight="35"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <EditText
+                    android:id="@+id/edtAdvancedSearch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:textAppearance="@style/TextSearchBox"
+                    android:drawableLeft="@drawable/ic_search"
+                    android:background="@null"
+                    android:hint="Nhập từ khóa"
+                    android:padding="3dp"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_weight="65"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <Spinner
+                    android:layout_gravity="center"
+                    android:id="@+id/spinnerAdvancedSearch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:spinnerMode="dropdown"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/padding_recyclerview"
+        android:background="@drawable/border_recyclerview_mainscreen_white">
+        <!--<ExpandableListView
+            android:id="@+id/explistAdvancedSearch"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:dividerHeight="1dp"
+            android:divider="@color/colorBackgroundGray"
+            android:listSelector="@drawable/expand_list_sellector"
+            android:childDivider="@color/colorBackgroundGray"
+            android:choiceMode="singleChoice"
+
+            >
+
+        </ExpandableListView>-->
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/info_detail_textview_paddingleft">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Loại hiện vật: "
+                android:textAppearance="@style/TextListInfoDetailBlack"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginHorizontal="@dimen/padding_spinner_advanced_search"
+            android:padding="@dimen/padding_spinner_advanced_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border_text_detail_gray">
+            <Spinner
+
+                android:id="@+id/spinnerMaterialType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:spinnerMode="dropdown"
+                />
+        </LinearLayout>
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/info_detail_textview_paddingleft">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Thời kỳ: "
+                android:textAppearance="@style/TextListInfoDetailBlack"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginHorizontal="@dimen/padding_spinner_advanced_search"
+            android:padding="@dimen/padding_spinner_advanced_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border_text_detail_gray"
+            >
+            <Spinner
+
+                android:id="@+id/spinnerTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:spinnerMode="dropdown"
+                />
+        </LinearLayout>
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/info_detail_textview_paddingleft"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Chất liệu: "
+                android:textAppearance="@style/TextListInfoDetailBlack"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginHorizontal="@dimen/padding_spinner_advanced_search"
+            android:padding="@dimen/padding_spinner_advanced_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border_text_detail_gray">
+            <Spinner
+
+                android:id="@+id/spinnerStuff"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:spinnerMode="dropdown"
+                android:drawSelectorOnTop="true"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

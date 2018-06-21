@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        >
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbarSearch"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorBackgroundToolbarBlue"
+            app:title="Tra cứu hiện vật"
+            >
+
+            <TextView
+                android:id="@+id/tvTitleToolbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:textAppearance="@style/TextTitleGlobalWhite" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                >
+
+                <TextView
+                    android:id="@+id/tvSearch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border_button_bluelight"
+                    android:gravity="center"
+                    android:layout_marginEnd="@dimen/textview_blue_light_paddingright"
+                    android:paddingVertical="@dimen/button_bluelight_padding_vertical"
+                    android:text="Tìm"
+                    android:textAppearance="@style/TextTitleCategogyDialog" />
+            </LinearLayout>
+
+
+        </android.support.v7.widget.Toolbar>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorBackgroundToolbarBlue"
+
+        >
+        <LinearLayout
+            android:weightSum="100"
+            android:orientation="horizontal"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border_edittext_search"
+            android:focusableInTouchMode="true"
+            android:focusable="true"
+
+            android:layout_marginHorizontal="10dp"
+            >
+            <LinearLayout
+                android:layout_weight="35"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <EditText
+                    android:id="@+id/edtSearchNormal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:textAppearance="@style/TextSearchBox"
+                    android:drawableLeft="@drawable/ic_search"
+                    android:background="@null"
+                    android:hint="Nhập từ khóa"
+                    android:padding="3dp"
+
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_weight="65"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <Spinner
+                    android:layout_gravity="center"
+                    android:id="@+id/spinnerSearch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:spinnerMode="dropdown"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:background="@color/colorWhite"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="100">
+        <RelativeLayout
+            android:layout_weight="10"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/padding_recyclerview"
+            android:background="@drawable/border_recyclerview_mainscreen_white">
+
+            <android.support.v7.widget.RecyclerView
+
+                android:id="@+id/rcvSearchNormal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/padding_recyclerview"
+                android:clickable="true">
+
+            </android.support.v7.widget.RecyclerView>
+            <ProgressBar
+                android:id="@+id/pbSearchNormal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:elevation="2dp"
+                android:visibility="visible"
+                android:indeterminateTint="@color/colorBlueLight"
+                android:indeterminateTintMode="src_in"/>
+            <TextView
+                android:id="@+id/tvNoResult"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Không tìm thấy kết quả phù hợp!"
+                android:layout_centerInParent="true"
+                android:textAppearance="@style/TextSearchBox"
+                android:visibility="gone"/>
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_weight="90"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/transparent"
+            android:gravity="center"
+            android:layout_margin="@dimen/margin_button_bluelight"
+            >
+            <TextView
+                android:id="@+id/tvAdvanceSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="TRA CỨU NÂNG CAO"
+                android:textAppearance="@style/TextTitleButtonBlue"
+                android:background="@drawable/border_button_bluelight"
+                android:gravity="center"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>
