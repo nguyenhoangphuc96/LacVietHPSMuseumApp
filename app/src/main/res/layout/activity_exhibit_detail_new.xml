@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/colorWhite">
+    android:background="@color/colorWhite"
+    android:orientation="vertical">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
         >
+
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbarExhibitDetail"
             android:layout_width="match_parent"
@@ -19,27 +20,28 @@
             app:title="Chi tiết hiện vật"
 
             >
+
             <TextView
+                android:id="@+id/tvTitleToolbar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/tvTitleToolbar"
 
-                android:textAppearance="@style/TextTitleGlobalWhite"
-                android:layout_gravity="start"/>
+                android:layout_gravity="start"
+                android:textAppearance="@style/TextTitleGlobalWhite" />
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                >
+                android:layout_gravity="end">
 
                 <TextView
                     android:id="@+id/tvShow3DImg"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/textview_blue_light_paddingright"
                     android:background="@drawable/border_button_bluelight"
                     android:gravity="center"
                     android:paddingVertical="@dimen/button_bluelight_padding_vertical"
-                    android:layout_marginEnd="@dimen/textview_blue_light_paddingright"
                     android:text="Xem ảnh 3D"
                     android:textAppearance="@style/TextTitleCategogyDialog" />
             </LinearLayout>
@@ -47,76 +49,70 @@
         </android.support.v7.widget.Toolbar>
     </LinearLayout>
 
-        <LinearLayout
+    <LinearLayout
 
-            android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/appbarDetail"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <android.support.design.widget.AppBarLayout
-                android:id="@+id/appbarDetail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:theme="@style/AppTheme.AppBarOverlay">
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay">
 
-                <android.support.design.widget.TabLayout
-                    android:id="@+id/tabLayoutDetail"
+            <android.support.design.widget.TabLayout
+                android:id="@+id/tabLayoutDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/colorWhite"
+                android:scrollbars="horizontal"
+                app:tabIndicatorColor="@color/colorBlueLight"
+                app:tabMode="scrollable"
+                app:tabSelectedTextColor="@color/colorBlueLight"
+                app:tabTextAppearance="@style/TextTabName">
+
+                <android.support.design.widget.TabItem
+                    android:id="@+id/tabGeneralInfo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:scrollbars="horizontal"
-                    android:background="@color/colorWhite"
-                    app:tabTextAppearance="@style/TextTabName"
-                    app:tabIndicatorColor="@color/colorBlueLight"
-                    app:tabSelectedTextColor="@color/colorBlueLight"
-                    app:tabMode="scrollable"
-                    >
+                    android:text="Tên tab" />
 
-                    <android.support.design.widget.TabItem
-                        android:id="@+id/tabGeneralInfo"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Tên tab"
-                        />
+                <android.support.design.widget.TabItem
+                    android:id="@+id/tabExpertise"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
-                    <android.support.design.widget.TabItem
-                        android:id="@+id/tabExpertise"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        />
+                <android.support.design.widget.TabItem
+                    android:id="@+id/tabLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
-                    <android.support.design.widget.TabItem
-                        android:id="@+id/tabLocation"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        />
-                    <android.support.design.widget.TabItem
-                        android:id="@+id/tabPropertie"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        />
+                <android.support.design.widget.TabItem
+                    android:id="@+id/tabPropertie"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
-                    <android.support.design.widget.TabItem
-                        android:id="@+id/tabSupplier"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        />
+                <android.support.design.widget.TabItem
+                    android:id="@+id/tabSupplier"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
-                    <android.support.design.widget.TabItem
-                        android:id="@+id/tabHistory"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        />
+                <android.support.design.widget.TabItem
+                    android:id="@+id/tabHistory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
-                </android.support.design.widget.TabLayout>
+            </android.support.design.widget.TabLayout>
 
-            </android.support.design.widget.AppBarLayout>
+        </android.support.design.widget.AppBarLayout>
 
-            <android.support.v4.view.ViewPager
-                android:id="@+id/container"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:layout_behavior="@string/appbar_scrolling_view_behavior" />
-        </LinearLayout>
-
+        <android.support.v4.view.ViewPager
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+    </LinearLayout>
 
 
 </LinearLayout>
