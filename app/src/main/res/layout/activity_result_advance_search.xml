@@ -62,6 +62,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Không tìm thấy kết quả phù hợp!"
+            android:textColor="@color/colorGrayforText"
             android:layout_centerInParent="true"
             android:textAppearance="@style/TextSearchBox"
             android:visibility="gone"/>

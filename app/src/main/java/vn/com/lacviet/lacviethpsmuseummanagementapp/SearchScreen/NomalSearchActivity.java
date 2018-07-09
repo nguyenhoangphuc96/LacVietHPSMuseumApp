@@ -324,9 +324,12 @@ public class NomalSearchActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view,
                                        int position, long id) {
-                ((TextView) parent.getChildAt(0)).setTextColor(Color.BLACK);
-                ((TextView) parent.getChildAt(0)).setTextSize(13);
+                if (parent.getChildAt(0) != null) {
+                    ((TextView) parent.getChildAt(0)).setTextColor(Color.BLACK);
+                    ((TextView) parent.getChildAt(0)).setTextSize(13);
+                }
                 category = arrCategory[position];
+
             }
 
             @Override

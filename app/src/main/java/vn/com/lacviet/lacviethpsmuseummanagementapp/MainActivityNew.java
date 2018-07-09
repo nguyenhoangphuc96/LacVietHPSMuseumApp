@@ -783,6 +783,8 @@ public class MainActivityNew extends AppCompatActivity implements View.OnClickLi
                 case 6: {
 
                 }
+                default:
+                    break;
             }
         }
     }

@@ -139,6 +139,7 @@
                 android:text="Không tìm thấy kết quả phù hợp!"
                 android:layout_centerInParent="true"
                 android:textAppearance="@style/TextSearchBox"
+                android:textColor="@color/colorGrayforText"
                 android:visibility="gone"/>
         </RelativeLayout>
         <LinearLayout
