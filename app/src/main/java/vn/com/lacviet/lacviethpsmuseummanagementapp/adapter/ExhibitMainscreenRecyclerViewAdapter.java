@@ -99,6 +99,10 @@ public class ExhibitMainscreenRecyclerViewAdapter extends RecyclerView.Adapter<E
             holder.progressBar.setVisibility(View.VISIBLE);
             holder.imvExhibit.setImageDrawable(null);
         }
+        if(item.geteIMAGE()==""){
+            holder.progressBar.setVisibility(View.GONE);
+            holder.imvExhibit.setImageDrawable(mContext.getResources().getDrawable(R.drawable.img_no_image));
+        }
     }
 
 

@@ -189,6 +189,7 @@ public class MainActivityNew extends AppCompatActivity implements View.OnClickLi
                 if (response.isSuccessful()) {
                     try {
                         int index = mAdapter.getTestList().indexOf(mod);
+
                         mAdapter.getTestList().get(index).seteIMAGE(response.body());
 
                         mAdapter.notifyItemChanged(index);
@@ -432,8 +433,7 @@ public class MainActivityNew extends AppCompatActivity implements View.OnClickLi
             }
         });
         //When choose all stuff
-        if(stuffId.equals("0"))
-        {
+        if (stuffId.equals("0")) {
             Intent intent = new Intent(MainActivityNew.this, MainActivityNew.class);
             startActivity(intent);
         }
@@ -524,11 +524,9 @@ public class MainActivityNew extends AppCompatActivity implements View.OnClickLi
     }
 
     private void loadAnswersDialog() {
-        if(isCategoryLoaded)
-        {
+        if (isCategoryLoaded) {
             dialogAdapter.updateAnswers(ListStuff);
-        }
-        else {
+        } else {
             mService.getAllStuffs().enqueue(new Callback<AllStuffJsonResponse>() {
                 @Override
                 public void onResponse(Call<AllStuffJsonResponse> call, Response<AllStuffJsonResponse> response) {
@@ -585,10 +583,12 @@ public class MainActivityNew extends AppCompatActivity implements View.OnClickLi
                 return super.onOptionsItemSelected(item);
         }
     }
+
     private void startNormalSearchActivity() {
         Intent intent = new Intent(MainActivityNew.this, NomalSearchActivity.class);
         startActivity(intent);
     }
+
     private void actionBar() {
         setSupportActionBar(toolbar);
         tvTitleToolbar.setText(toolbar.getTitle());
