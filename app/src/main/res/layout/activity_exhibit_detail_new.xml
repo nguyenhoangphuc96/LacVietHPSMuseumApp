@@ -35,15 +35,16 @@
                 android:layout_gravity="end">
 
                 <TextView
-                    android:id="@+id/tvShow3DImg"
+                    android:id="@+id/tvSameExhibit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/textview_blue_light_paddingright"
                     android:background="@drawable/border_button_bluelight"
                     android:gravity="center"
-                    android:paddingVertical="@dimen/button_bluelight_padding_vertical"
-                    android:text="Xem ảnh 3D"
-                    android:textAppearance="@style/TextTitleCategogyDialog" />
+                    android:paddingTop="@dimen/button_bluelight_padding_vertical"
+                    android:paddingBottom="@dimen/button_bluelight_padding_vertical"
+                    android:text="Hiện vật tương tự"
+                    android:textAppearance="@style/TextTitleButtonBlue" />
             </LinearLayout>
 
         </android.support.v7.widget.Toolbar>

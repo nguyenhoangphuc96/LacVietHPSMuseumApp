@@ -27,6 +27,7 @@ import retrofit2.Response;
 import vn.com.lacviet.lacviethpsmuseummanagementapp.KeyString;
 import vn.com.lacviet.lacviethpsmuseummanagementapp.R;
 import vn.com.lacviet.lacviethpsmuseummanagementapp.SearchScreen.SearchResultActivity;
+import vn.com.lacviet.lacviethpsmuseummanagementapp.Show3DModelScreen.Main;
 import vn.com.lacviet.lacviethpsmuseummanagementapp.Util;
 import vn.com.lacviet.lacviethpsmuseummanagementapp.WebAPI.Model.ExhibitModel;
 import vn.com.lacviet.lacviethpsmuseummanagementapp.WebAPI.Model.ImageByIDResponse;
@@ -37,7 +38,7 @@ import vn.com.lacviet.lacviethpsmuseummanagementapp.adapter.InfinityCycleImageVi
 public class TabGeneralInfoFragment extends Fragment {
 
     List<Bitmap> lstImages;
-    HorizontalInfiniteCycleViewPager pager;
+    //HorizontalInfiniteCycleViewPager pager;
     ImageView imgExhibitDatail;
     //web api
     private ApiService mService;
@@ -46,10 +47,10 @@ public class TabGeneralInfoFragment extends Fragment {
     ProgressBar pbImage, pbInfinity;
     //
     int id;
-    String stuffId="";
-    String stuffName;
+    static String stuffId="";
+    static String stuffName;
     //
-    TextView tvSameExhibit;
+    TextView tv3d;
     RelativeLayout rlInfinity;
 
     public TabGeneralInfoFragment() {
@@ -59,12 +60,12 @@ public class TabGeneralInfoFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_info_detail_tab_general_info, container, false);
+        View view = inflater.inflate(R.layout.fragment_info_detail_tab_general_info1, container, false);
 
         addControls(view);
         loadAnswers();
         loadImageDefault();
-        loadImageList();
+        //loadImageList();
         addEvents();
         return view;
     }
@@ -207,21 +208,20 @@ public class TabGeneralInfoFragment extends Fragment {
                 startShowImageActivity(id);
             }
         });
-        pager.startAutoScroll(true);
-        tvSameExhibit.setOnClickListener(new View.OnClickListener() {
+        //pager.startAutoScroll(true);
+        tv3d.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startResultActivity(stuffId, stuffName);
+                startShow3DActivity();
             }
         });
 
     }
 
-    private void startResultActivity(String stuffId, String stuffName) {
-        Intent intent = new Intent(getActivity(), SearchResultActivity.class);
-        KeyString key = new KeyString();
-        intent.putExtra(key.ITEM_KEY, stuffId);
-        intent.putExtra(key.STUFF_NAME, stuffName);
+    private void startShow3DActivity() {
+        Intent intent = new Intent(getActivity(), Main.class);
+//        KeyString key = new KeyString();
+//        intent.putExtra(key.ITEM_KEY, position);
         startActivity(intent);
     }
 
@@ -235,7 +235,7 @@ public class TabGeneralInfoFragment extends Fragment {
     private void addControls(View view) {
 
 
-        pager = view.findViewById(R.id.horizontal_cycle_mini);
+        //pager = view.findViewById(R.id.horizontal_cycle_mini);
         imgExhibitDatail = view.findViewById(R.id.imgExhibitDetail);
         //web api
         mService = ApiUtils.getSOService();
@@ -255,9 +255,9 @@ public class TabGeneralInfoFragment extends Fragment {
         //
         lstImages = new ArrayList<>();
         //
-        tvSameExhibit = view.findViewById(R.id.tvSameExhibit);
-        //
         rlInfinity = view.findViewById(R.id.rlInfiityCycleView);
+        //
+        tv3d = view.findViewById(R.id.tv3d);
     }
 
     private void initDataInfinityCycle(List<String> exhibitImages) {
@@ -282,7 +282,7 @@ public class TabGeneralInfoFragment extends Fragment {
 
     private void showDatatoInfinityCycle(List<Bitmap> lstImages) {
         InfinityCycleImageViewAdapter adapter = new InfinityCycleImageViewAdapter(lstImages, getContext());
-        pager.setAdapter(adapter);
+        //pager.setAdapter(adapter);
 
     }
 }

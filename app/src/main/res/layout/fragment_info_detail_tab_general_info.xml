@@ -12,7 +12,7 @@
         android:weightSum="100"
         android:orientation="vertical">
         <LinearLayout
-            android:layout_weight="30"
+            android:layout_weight="45"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <LinearLayout
@@ -31,7 +31,7 @@
         </LinearLayout>
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_weight="19"
+            android:layout_weight="25"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:weightSum="100">
@@ -209,90 +209,97 @@
             </LinearLayout>
 
         </LinearLayout>
-        <ScrollView
-            android:layout_weight="21"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <LinearLayout
-
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="@dimen/info_detail_textview_paddingleft">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Tên gọi khác: "
-                        android:textAppearance="@style/TextListInfoDetailGray"/>
-                    <TextView
-                        android:id="@+id/tvOtherName"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Updating.."
-                        android:textAppearance="@style/TextListInfoDetailBlack"/>
-
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="@dimen/info_detail_textview_paddingleft">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Thành phần: "
-                        android:textAppearance="@style/TextListInfoDetailGray"/>
-                    <TextView
-                        android:id="@+id/tvElement"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Updating.. "
-                        android:textAppearance="@style/TextListInfoDetailBlack"/>
-
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="@dimen/info_detail_textview_paddingleft">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Mô tả: "
-                        android:textAppearance="@style/TextListInfoDetailGray"/>
-                    <TextView
-                        android:id="@+id/tvDescription"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Updating.. "
-                        android:textAppearance="@style/TextListInfoDetailBlack"/>
-
-                </LinearLayout>
-
-            </LinearLayout>
-        </ScrollView>
-        <LinearLayout
+        <RelativeLayout
             android:layout_weight="30"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/colorWhite"
-            android:gravity="center"
-            android:layout_margin="@dimen/margin_button_bluelight"
-            >
-            <TextView
-                android:id="@+id/tvSameExhibit"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="HIỆN VẬT TƯƠNG TỰ"
-                android:textAppearance="@style/TextTitleButtonBlue"
-                android:background="@drawable/border_button_bluelight"
-                android:gravity="center"/>
+            android:layout_height="match_parent">
+            <ScrollView
 
-        </LinearLayout>
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/info_detail_textview_paddingleft">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tên gọi khác: "
+                            android:textAppearance="@style/TextListInfoDetailGray"/>
+                        <TextView
+                            android:id="@+id/tvOtherName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Updating.."
+                            android:textAppearance="@style/TextListInfoDetailBlack"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/info_detail_textview_paddingleft">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Thành phần: "
+                            android:textAppearance="@style/TextListInfoDetailGray"/>
+                        <TextView
+                            android:id="@+id/tvElement"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Updating.. "
+                            android:textAppearance="@style/TextListInfoDetailBlack"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/info_detail_textview_paddingleft">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Mô tả: "
+                            android:textAppearance="@style/TextListInfoDetailGray"/>
+                        <TextView
+                            android:id="@+id/tvDescription"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Updating.. "
+                            android:textAppearance="@style/TextListInfoDetailBlack"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </ScrollView>
+            <LinearLayout
+                android:layout_alignParentBottom="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent"
+                android:gravity="center"
+                android:layout_margin="@dimen/margin_button_bluelight"
+                >
+                <TextView
+                    android:id="@+id/tvSameExhibit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="HIỆN VẬT TƯƠNG TỰ"
+                    android:textAppearance="@style/TextTitleButtonBlue"
+                    android:background="@drawable/border_button_bluelight"
+                    android:gravity="center"/>
+
+            </LinearLayout>
+        </RelativeLayout>
+
+
     </LinearLayout>
 
 

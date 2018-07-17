@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import vn.com.lacviet.lacviethpsmuseummanagementapp.KeyString;
 import vn.com.lacviet.lacviethpsmuseummanagementapp.R;
+import vn.com.lacviet.lacviethpsmuseummanagementapp.SearchScreen.SearchResultActivity;
 import vn.com.lacviet.lacviethpsmuseummanagementapp.Show3DModelScreen.Main;
 import vn.com.lacviet.lacviethpsmuseummanagementapp.adapter.InfoDetailPagerAdapter;
 
@@ -25,7 +26,9 @@ public class ExhibitDetailActivityNew extends AppCompatActivity {
     private TextView tvTitleToolbar;
     private ViewPager pager;
     private TabLayout tabLayout;
-    private TextView tvShow3DImage;
+    private TextView tvSameExhibit;
+    //
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -38,10 +41,10 @@ public class ExhibitDetailActivityNew extends AppCompatActivity {
     }
 
     private void addEvent() {
-        tvShow3DImage.setOnClickListener(new View.OnClickListener() {
+        tvSameExhibit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startShow3DActivity();
+                startResultActivity(TabGeneralInfoFragment.stuffId, TabGeneralInfoFragment.stuffName);
             }
         });
     }
@@ -64,7 +67,7 @@ public class ExhibitDetailActivityNew extends AppCompatActivity {
         tvTitleToolbar = findViewById(R.id.tvTitleToolbar);
         pager = findViewById(R.id.container);
         tabLayout = findViewById(R.id.tabLayoutDetail);
-        tvShow3DImage = findViewById(R.id.tvShow3DImg);
+        tvSameExhibit = findViewById(R.id.tvSameExhibit);
     }
     private void actionBar() {
         setSupportActionBar(toolbar);
@@ -93,5 +96,11 @@ public class ExhibitDetailActivityNew extends AppCompatActivity {
         pager.setOffscreenPageLimit(5);//no reload when change tab
     }
 
-
+    private void startResultActivity(String stuffId, String stuffName) {
+        Intent intent = new Intent(ExhibitDetailActivityNew.this, SearchResultActivity.class);
+        KeyString key = new KeyString();
+        intent.putExtra(key.ITEM_KEY, stuffId);
+        intent.putExtra(key.STUFF_NAME, stuffName);
+        startActivity(intent);
+    }
 }
