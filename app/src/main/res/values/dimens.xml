@@ -23,4 +23,7 @@
     <dimen name="margin_button_bluelight">10dp</dimen>
     <dimen name="padding_web_view">10dp</dimen>
     <dimen name="margin_edittext_config_screen">10dp</dimen>
+    <dimen name="height_circle">50dp</dimen>
+    <dimen name="circle_button_padding">1dp</dimen>
+
 </resources>

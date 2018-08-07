@@ -7,6 +7,6 @@
         android:color="@color/transparent50Black"/>
 
     <size
-        android:width="20dp"
-        android:height="20dp"/>
+        android:width="@dimen/height_circle"
+        android:height="@dimen/height_circle"/>
 </shape>

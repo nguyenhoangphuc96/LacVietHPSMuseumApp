@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
@@ -52,6 +53,8 @@ public class TabGeneralInfoFragment extends Fragment {
     //
     TextView tv3d;
     RelativeLayout rlInfinity;
+    //
+    Button btn360,btn3d;
 
     public TabGeneralInfoFragment() {
         // Required empty public constructor
@@ -209,7 +212,7 @@ public class TabGeneralInfoFragment extends Fragment {
             }
         });
         //pager.startAutoScroll(true);
-        tv3d.setOnClickListener(new View.OnClickListener() {
+        btn3d.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startShow3DActivity();
@@ -257,7 +260,9 @@ public class TabGeneralInfoFragment extends Fragment {
         //
         rlInfinity = view.findViewById(R.id.rlInfiityCycleView);
         //
-        tv3d = view.findViewById(R.id.tv3d);
+        //tv3d = view.findViewById(R.id.tv3d);
+        btn3d = view.findViewById(R.id.btn3d);
+        btn360 = view.findViewById(R.id.btn360);
     }
 
     private void initDataInfinityCycle(List<String> exhibitImages) {
