@@ -123,7 +123,7 @@ public class MainActivityNew extends AppCompatActivity implements View.OnClickLi
 
 
     public void showErrorMessage() {
-        Toast.makeText(MainActivityNew.this, "Error loading posts", Toast.LENGTH_SHORT).show();
+        Toast.makeText(MainActivityNew.this, R.string.error_loading_from_API, Toast.LENGTH_SHORT).show();
     }
 
 
@@ -336,6 +336,7 @@ public class MainActivityNew extends AppCompatActivity implements View.OnClickLi
         txtTitleCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                pbMainScreen.setVisibility(View.VISIBLE);
                 showViewDialog();
             }
         });
@@ -404,6 +405,7 @@ public class MainActivityNew extends AppCompatActivity implements View.OnClickLi
 
         alertDialog.setCancelable(true);
         alertDialog.show();
+
 
 
     }
@@ -526,6 +528,7 @@ public class MainActivityNew extends AppCompatActivity implements View.OnClickLi
     private void loadAnswersDialog() {
         if (isCategoryLoaded) {
             dialogAdapter.updateAnswers(ListStuff);
+            pbMainScreen.setVisibility(View.GONE);
         } else {
             mService.getAllStuffs().enqueue(new Callback<AllStuffJsonResponse>() {
                 @Override
@@ -535,7 +538,7 @@ public class MainActivityNew extends AppCompatActivity implements View.OnClickLi
                         dialogAdapter.updateAnswers(response.body().getStuffModels());
                         ListStuff = response.body().getStuffModels();
                         isCategoryLoaded = true;
-
+                        pbMainScreen.setVisibility(View.GONE);
                         Log.d("AnswersPresenter", "posts loaded from API");
                     } else {
                         int statusCode = response.code();

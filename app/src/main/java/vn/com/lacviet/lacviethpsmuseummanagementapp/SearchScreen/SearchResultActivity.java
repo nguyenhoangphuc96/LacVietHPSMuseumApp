@@ -279,7 +279,7 @@ public class SearchResultActivity extends AppCompatActivity {
     }
 
     public void showErrorMessage() {
-        Toast.makeText(SearchResultActivity.this, "Error loading posts", Toast.LENGTH_SHORT).show();
+        Toast.makeText(SearchResultActivity.this, R.string.error_loading_from_API, Toast.LENGTH_SHORT).show();
     }
 
     private void actionBar() {

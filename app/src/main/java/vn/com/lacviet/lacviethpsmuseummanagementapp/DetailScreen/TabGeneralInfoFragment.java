@@ -181,7 +181,7 @@ public class TabGeneralInfoFragment extends Fragment {
     }
 
     public void showErrorMessage() {
-        Toast.makeText(getContext(), "Error loading posts", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), R.string.error_loading_from_API, Toast.LENGTH_SHORT).show();
     }
 
     private void showDataToView(ExhibitModel body) {

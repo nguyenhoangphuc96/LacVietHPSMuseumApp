@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.gigamole.infinitecycleviewpager.HorizontalInfiniteCycleViewPager;
+import com.github.chrisbanes.photoview.PhotoView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,6 +45,8 @@ public class ShowImageExhibitActivity extends AppCompatActivity {
     int id;
     List<Bitmap> lstImages = new ArrayList<>();
     HorizontalInfiniteCycleViewPager pager;
+    //
+    PhotoView ptvExhibit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,14 +99,14 @@ public class ShowImageExhibitActivity extends AppCompatActivity {
     private void showImage(String imageString) {
         if (imageString != "") {
             Bitmap bmp = Util.StringToBitMap(imageString);
-            imageView.setImageBitmap(bmp);
+            ptvExhibit.setImageBitmap(bmp);
         } else {
-            imageView.setImageResource(R.drawable.img_no_image);
+            ptvExhibit.setImageResource(R.drawable.img_no_image);
         }
 
     }
     public void showErrorMessage() {
-        Toast.makeText(ShowImageExhibitActivity.this, "Error loading posts", Toast.LENGTH_SHORT).show();
+        Toast.makeText(ShowImageExhibitActivity.this, R.string.error_loading_from_API, Toast.LENGTH_SHORT).show();
     }
 
 
@@ -136,7 +139,8 @@ public class ShowImageExhibitActivity extends AppCompatActivity {
         mService = ApiUtils.getSOService();
         //
         lstImages = new ArrayList<>();
-        imageView = findViewById(R.id.imvShowExhibit);
+        //imageView = findViewById(R.id.imvShowExhibit);
+        ptvExhibit = findViewById(R.id.ptvShowExhibit);
     }
 
     private void actionBar() {

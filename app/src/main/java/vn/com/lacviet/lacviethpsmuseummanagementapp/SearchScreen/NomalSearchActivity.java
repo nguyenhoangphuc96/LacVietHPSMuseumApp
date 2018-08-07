@@ -271,7 +271,7 @@ public class NomalSearchActivity extends AppCompatActivity {
     }
 
     public void showErrorMessage() {
-        Toast.makeText(NomalSearchActivity.this, "Error loading posts", Toast.LENGTH_SHORT).show();
+        Toast.makeText(NomalSearchActivity.this, R.string.error_loading_from_API, Toast.LENGTH_SHORT).show();
     }
     private void showDataToRecyclerView() {
         mAdapter = new ExhibitMainscreenRecyclerViewAdapter(this, new ArrayList<ExhibitMainScreenWithImageModel>(0), new ExhibitMainscreenRecyclerViewAdapter.PostItemListener() {

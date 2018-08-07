@@ -256,7 +256,7 @@ public class AdvancedResultActivity extends AppCompatActivity {
     }
 
     public void showErrorMessage() {
-        Toast.makeText(this, "Error loading posts", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, R.string.error_loading_from_API, Toast.LENGTH_SHORT).show();
     }
 
     private void actionBar() {

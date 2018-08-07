@@ -12,4 +12,5 @@
     <string name="open_model_error">Failed to load model.</string>
     <string name="view_vr">View in VR mode</string>
     <string name="view_vr_not_loaded">Please load a model first.</string>
+    <string name="error_loading_from_API">Vui lòng kiểm tra lại kết nối!</string>
 </resources>
