@@ -6,14 +6,14 @@
     android:id="@+id/container_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorOrange"
+    android:background="@color/colorBackgroundToolbarBlue"
     tools:context="vn.com.lacviet.lacviethpsmuseummanagementapp.Show3DModelScreen.Main">
     <ProgressBar
         android:id="@+id/model_progress_bar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:layout_gravity="top|end"/>
+        android:layout_gravity="center"/>
 
 
 

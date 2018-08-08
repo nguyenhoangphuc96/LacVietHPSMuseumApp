@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        >
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbarShowImageExhibit"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorBackgroundToolbarBlue"
+            app:title="Xem ảnh 360"
+            >
+
+            <TextView
+                android:id="@+id/tvTitleToolbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:textAppearance="@style/TextTitleGlobalWhite" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                >
+
+                <TextView
+                    android:id="@+id/tvShow3DImg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border_button_bluelight"
+                    android:gravity="center"
+                    android:layout_marginEnd="@dimen/textview_blue_light_paddingright"
+                    android:paddingVertical="@dimen/button_bluelight_padding_vertical"
+                    android:text="Xem ảnh 3D"
+                    android:textAppearance="@style/TextTitleCategogyDialog" />
+            </LinearLayout>
+
+
+        </android.support.v7.widget.Toolbar>
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/imvShow360"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter" />
+        <ProgressBar
+            android:id="@+id/pbShowImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:elevation="2dp"
+            android:visibility="visible"
+            android:indeterminateTint="@color/colorBlueLight"
+            android:indeterminateTintMode="src_in"/>
+    </RelativeLayout>
+
+
+</LinearLayout>

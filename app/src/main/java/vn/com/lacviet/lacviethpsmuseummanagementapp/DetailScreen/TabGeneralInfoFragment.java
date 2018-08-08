@@ -28,6 +28,7 @@ import retrofit2.Response;
 import vn.com.lacviet.lacviethpsmuseummanagementapp.KeyString;
 import vn.com.lacviet.lacviethpsmuseummanagementapp.R;
 import vn.com.lacviet.lacviethpsmuseummanagementapp.SearchScreen.SearchResultActivity;
+import vn.com.lacviet.lacviethpsmuseummanagementapp.Show360Model.Show360Activity;
 import vn.com.lacviet.lacviethpsmuseummanagementapp.Show3DModelScreen.Main;
 import vn.com.lacviet.lacviethpsmuseummanagementapp.Util;
 import vn.com.lacviet.lacviethpsmuseummanagementapp.WebAPI.Model.ExhibitModel;
@@ -218,11 +219,23 @@ public class TabGeneralInfoFragment extends Fragment {
                 startShow3DActivity();
             }
         });
+        btn360.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startShow360Activity();
+            }
+        });
 
     }
 
     private void startShow3DActivity() {
         Intent intent = new Intent(getActivity(), Main.class);
+//        KeyString key = new KeyString();
+//        intent.putExtra(key.ITEM_KEY, position);
+        startActivity(intent);
+    }
+    private void startShow360Activity() {
+        Intent intent = new Intent(getActivity(), Show360Activity.class);
 //        KeyString key = new KeyString();
 //        intent.putExtra(key.ITEM_KEY, position);
         startActivity(intent);

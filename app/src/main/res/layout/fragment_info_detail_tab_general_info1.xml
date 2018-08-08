@@ -27,7 +27,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center|start"
-                    android:text="Trống đồng Đông Sơn"
+                    android:text="Updating.."
                     android:textAppearance="@style/TextTitleDetailBlue" />
             </LinearLayout>
 
@@ -97,6 +97,7 @@
                         android:layout_height="wrap_content"
                         android:elevation="2dp">
                         <Button
+                            android:clickable="true"
                             android:id="@+id/btn360"
                             android:layout_width="@dimen/height_circle"
                             android:layout_height="@dimen/height_circle"
