@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Put your color for ripple effect -->
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="@color/transparent50Black">
+    <item android:id="@android:id/mask">
+        <shape android:shape="oval" >
+            <!-- Color not displayed,just to tell ripple about the bounds -->
+            <solid android:color="@color/colorBlack" />
+        </shape>
+    </item>
+
+    <item android:id="@android:id/background">
+        <shape android:shape="oval">
+            <!-- Color not displayed,just to tell ripple about the bounds -->
+            <solid android:color="@color/transparent50Black" />
+            <size
+                android:width="@dimen/height_circle"
+                android:height="@dimen/height_circle"/>
+        </shape>
+    </item>
+    <!-- And your drawable -->
+    <item android:drawable="@drawable/ic_panorama"
+        android:height="35dp"
+        android:width="35dp"
+        android:gravity="center">
+    </item>
+</ripple>

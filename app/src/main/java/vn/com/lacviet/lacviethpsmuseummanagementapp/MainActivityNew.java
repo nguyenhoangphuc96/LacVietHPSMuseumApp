@@ -691,7 +691,7 @@ public class MainActivityNew extends AppCompatActivity implements View.OnClickLi
                 break;
             }
             case R.id.imvLegisMenu: {
-                //show fragment
+                /*//show fragment
                 LegislationMenuFragment legisMenuFragment = new LegislationMenuFragment();
                 FragmentManager manager = getSupportFragmentManager();
                 manager.beginTransaction()
@@ -699,7 +699,7 @@ public class MainActivityNew extends AppCompatActivity implements View.OnClickLi
                         .commit();
                 //set color
                 setDefaultIconMenu();
-                arrImageView[4].setImageDrawable(getResources().getDrawable(R.drawable.ic_legislation_yellow));
+                arrImageView[4].setImageDrawable(getResources().getDrawable(R.drawable.ic_legislation_yellow));*/
                 break;
             }
             case R.id.imvContactMenu: {

@@ -30,6 +30,7 @@ import vn.com.lacviet.lacviethpsmuseummanagementapp.R;
 import vn.com.lacviet.lacviethpsmuseummanagementapp.SearchScreen.SearchResultActivity;
 import vn.com.lacviet.lacviethpsmuseummanagementapp.Show360Model.Show360Activity;
 import vn.com.lacviet.lacviethpsmuseummanagementapp.Show3DModelScreen.Main;
+import vn.com.lacviet.lacviethpsmuseummanagementapp.ShowPanorama.ShowPanoramaActivity;
 import vn.com.lacviet.lacviethpsmuseummanagementapp.Util;
 import vn.com.lacviet.lacviethpsmuseummanagementapp.WebAPI.Model.ExhibitModel;
 import vn.com.lacviet.lacviethpsmuseummanagementapp.WebAPI.Model.ImageByIDResponse;
@@ -55,7 +56,7 @@ public class TabGeneralInfoFragment extends Fragment {
     TextView tv3d;
     RelativeLayout rlInfinity;
     //
-    Button btn360,btn3d;
+    Button btn360,btn3d,btnPanorama;
 
     public TabGeneralInfoFragment() {
         // Required empty public constructor
@@ -225,9 +226,20 @@ public class TabGeneralInfoFragment extends Fragment {
                 startShow360Activity();
             }
         });
+        btnPanorama.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startShowPanoramaActivity();
+            }
+        });
 
     }
-
+    private void startShowPanoramaActivity() {
+        Intent intent = new Intent(getActivity(), ShowPanoramaActivity.class);
+//        KeyString key = new KeyString();
+//        intent.putExtra(key.ITEM_KEY, position);
+        startActivity(intent);
+    }
     private void startShow3DActivity() {
         Intent intent = new Intent(getActivity(), Main.class);
 //        KeyString key = new KeyString();
@@ -276,6 +288,7 @@ public class TabGeneralInfoFragment extends Fragment {
         //tv3d = view.findViewById(R.id.tv3d);
         btn3d = view.findViewById(R.id.btn3d);
         btn360 = view.findViewById(R.id.btn360);
+        btnPanorama = view.findViewById(R.id.btnPanorama);
     }
 
     private void initDataInfinityCycle(List<String> exhibitImages) {
