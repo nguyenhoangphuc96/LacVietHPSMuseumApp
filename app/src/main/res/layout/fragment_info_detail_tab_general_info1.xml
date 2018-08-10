@@ -86,6 +86,7 @@
                             android:background="@drawable/shape_circle"
                             android:text="3D"
                             android:textColor="@color/colorWhite"
+                            android:foreground="?attr/selectableItemBackgroundBorderless"
                             />
                     </LinearLayout>
                     <LinearLayout
@@ -104,6 +105,7 @@
                             android:background="@drawable/shape_circle"
                             android:text="360"
                             android:textColor="@color/colorWhite"
+                            android:foreground="?attr/selectableItemBackgroundBorderless"
                             />
                     </LinearLayout>
                     <LinearLayout
