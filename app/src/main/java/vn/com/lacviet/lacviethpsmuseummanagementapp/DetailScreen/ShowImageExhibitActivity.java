@@ -61,23 +61,20 @@ public class ShowImageExhibitActivity extends AppCompatActivity {
     }
 
     private void loadAnswers() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                //get id
+
                 Bundle extras = getIntent().getExtras();
                 KeyString key = new KeyString();
                 id = extras.getInt(key.ITEM_KEY);
 
 
                 //Get list image
-                mService.getAllExhibitImageById(id,false).enqueue(new Callback<ImageByIDResponse>() {
+                mService.getExhibitImageById(id,false).enqueue(new Callback<String>() {
 
                     @Override
-                    public void onResponse(Call<ImageByIDResponse> call, Response<ImageByIDResponse> response) {
+                    public void onResponse(Call<String> call, Response<String> response) {
                         if (response.isSuccessful()) {
                             //initDataInfinityCycle(response.body().getExhibitImages());
-                            showImage(response.body().getExhibitImages().get(0));
+                            showImage(response.body());
                             pbShowImage.setVisibility(View.GONE);
                             Log.d("AnswersPresenter", "posts loaded from API");
                         } else {
@@ -87,13 +84,13 @@ public class ShowImageExhibitActivity extends AppCompatActivity {
                     }
 
                     @Override
-                    public void onFailure(Call<ImageByIDResponse> call, Throwable t) {
+                    public void onFailure(Call<String> call, Throwable t) {
                         showErrorMessage();
                         Log.d("AnswersPresenter", "error loading from API");
                     }
                 });
-            }
-        }).start();
+
+
 
     }
     private void showImage(String imageString) {

@@ -108,7 +108,7 @@ public class TabGeneralInfoFragment extends Fragment {
     private void loadImageDefault() {
 
         //get image default
-        mService.getExhibitImageById(id).enqueue(new Callback<String>() {
+        mService.getExhibitImageById(id,true).enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
 

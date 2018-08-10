@@ -223,7 +223,7 @@ public class AdvancedResultActivity extends AppCompatActivity {
             }
         }).run();
 
-        mService.getExhibitImageById(mod.geteXHID()).enqueue(new Callback<String>() {
+        mService.getExhibitImageById(mod.geteXHID(),true).enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
 

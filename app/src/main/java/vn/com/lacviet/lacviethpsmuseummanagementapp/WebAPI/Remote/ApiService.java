@@ -35,7 +35,8 @@ public interface ApiService {
     Call<ExhibitModel> getExhibitById(@Query("id") int id);
 
     @GET("Exhibit/GetImage")
-    Call<String> getExhibitImageById(@Query("id") int id);
+    Call<String> getExhibitImageById(@Query("id") int id,
+                                     @Query("thumbnail") boolean thumbnail);
 
     @GET("Exhibit/GetImages")
     Call<ImageByIDResponse> getAllExhibitImageById(@Query("id") int id,
