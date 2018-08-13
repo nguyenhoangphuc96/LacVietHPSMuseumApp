@@ -83,11 +83,11 @@ public class MainActivityNew extends AppCompatActivity implements View.OnClickLi
     private ProgressBar pbMainScreen;
     //load more
     private int indexPage = 1;
-    private int size = 20;
+    private int size = 10;
     private ArrayList<ExhibitMainScreenModel> mainScreenModelArrayList;
 
     private EndlessRecyclerViewScrollListener scrollListener;
-    int totalItem = 20;
+    int totalItem = 10;
     int totalMaxSize;
     //
     ArrayList<ExhibitMainScreenWithImageModel> ListExhibit;
