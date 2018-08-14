@@ -1,7 +1,9 @@
 package vn.com.lacviet.lacviethpsmuseummanagementapp;
 
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -98,6 +100,9 @@ public class MainActivityNew extends AppCompatActivity implements View.OnClickLi
     //
     Boolean isCategoryLoaded = false;
     List<StuffModel> ListStuff;
+    //
+    //
+    SharedPreferences mySharedPreferences;
 
 
     @Override
@@ -111,6 +116,7 @@ public class MainActivityNew extends AppCompatActivity implements View.OnClickLi
                 WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
                 WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
         );*/
+
         addControl();
         actionBar();
         showDataToRecyclerView();
@@ -118,10 +124,14 @@ public class MainActivityNew extends AppCompatActivity implements View.OnClickLi
         showIntroMenu();
         setPositionTextViewTittleCategogy();
         addEvent();
+        initSharedPre();
+
 
     }
 
-
+    private void initSharedPre() {
+        mySharedPreferences = getSharedPreferences("MY_SETTING_CACHE", Activity.MODE_PRIVATE);
+    }
     public void showErrorMessage() {
         Toast.makeText(MainActivityNew.this, R.string.error_loading_from_API, Toast.LENGTH_SHORT).show();
     }
@@ -708,6 +718,7 @@ public class MainActivityNew extends AppCompatActivity implements View.OnClickLi
 
             }
             case R.id.imvConfig: {
+                clearSavedURL();
                 startConfigActivity();
                 break;
 
@@ -721,6 +732,13 @@ public class MainActivityNew extends AppCompatActivity implements View.OnClickLi
                 break;
         }
 
+    }
+
+    private void clearSavedURL() {
+        SharedPreferences.Editor editor = mySharedPreferences.edit();
+        // Store new primitive types in the shared preferences object.
+        editor.putString("baseURL", "");
+        editor.commit();
     }
 
     private void startConfigActivity() {

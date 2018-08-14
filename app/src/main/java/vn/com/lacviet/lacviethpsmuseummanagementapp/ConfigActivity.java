@@ -1,6 +1,8 @@
 package vn.com.lacviet.lacviethpsmuseummanagementapp;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -20,6 +22,8 @@ public class ConfigActivity extends AppCompatActivity {
     TextView tvOk;
     public static String configUrl="";
     public static String defaultUrl="demo.museum.vebrary.vn";
+    //
+    SharedPreferences mySharedPreferences;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -30,6 +34,29 @@ public class ConfigActivity extends AppCompatActivity {
         addControl();
         setEditText();
         addEvent();
+        initSharedPre();
+        //check saved config url
+        checkConfigSaved();
+    }
+
+    private void initSharedPre() {
+        mySharedPreferences = getSharedPreferences("MY_SETTING_CACHE", Activity.MODE_PRIVATE);
+    }
+
+    private void checkConfigSaved() {
+        String cachedURL = mySharedPreferences.getString("baseURL","");
+        if(!cachedURL.equals(""))
+        {
+            configUrl = cachedURL;
+            startMainActivityNew(configUrl);
+        }
+    }
+
+    private void saveCacheUrl() {
+        SharedPreferences.Editor editor = mySharedPreferences.edit();
+        // Store new primitive types in the shared preferences object.
+        editor.putString("baseURL", configUrl);
+        editor.commit();
     }
 
     private void setEditText() {
@@ -48,6 +75,7 @@ public class ConfigActivity extends AppCompatActivity {
                 }
                 if(configUrl.equals("demo.museum.vebrary.vn")) {
                     startMainActivityNew(configUrl);
+                    saveCacheUrl();
                 }
                 else {
                     Toast.makeText(ConfigActivity.this, "URL invalid!", Toast.LENGTH_SHORT).show();
@@ -69,6 +97,7 @@ public class ConfigActivity extends AppCompatActivity {
                     }
                     if(configUrl.equals("demo.museum.vebrary.vn")) {
                         startMainActivityNew(configUrl);
+                        saveCacheUrl();
                     }
                     else {
                         Toast.makeText(ConfigActivity.this, "URL invalid!", Toast.LENGTH_SHORT).show();
