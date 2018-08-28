@@ -217,7 +217,7 @@ public class TabGeneralInfoFragment extends Fragment {
         btn3d.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startShow3DActivity();
+                startShow3DActivity(id);
             }
         });
         btn360.setOnClickListener(new View.OnClickListener() {
@@ -240,16 +240,16 @@ public class TabGeneralInfoFragment extends Fragment {
 //        intent.putExtra(key.ITEM_KEY, position);
         startActivity(intent);
     }
-    private void startShow3DActivity() {
+    private void startShow3DActivity(int id) {
         Intent intent = new Intent(getActivity(), Main.class);
-//        KeyString key = new KeyString();
-//        intent.putExtra(key.ITEM_KEY, position);
+        KeyString key = new KeyString();
+        intent.putExtra(key.ITEM_KEY, id);
         startActivity(intent);
     }
     private void startShow360Activity(int id) {
         Intent intent = new Intent(getActivity(), Show360Activity.class);
         KeyString key = new KeyString();
-        intent.putExtra(key.ITEM_KEY, this.id);
+        intent.putExtra(key.ITEM_KEY, id);
         startActivity(intent);
     }
 

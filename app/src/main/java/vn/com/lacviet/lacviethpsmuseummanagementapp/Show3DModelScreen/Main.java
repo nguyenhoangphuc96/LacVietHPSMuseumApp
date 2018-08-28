@@ -34,6 +34,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 import retrofit2.Call;
 import retrofit2.Callback;
+import vn.com.lacviet.lacviethpsmuseummanagementapp.KeyString;
 import vn.com.lacviet.lacviethpsmuseummanagementapp.R;
 import vn.com.lacviet.lacviethpsmuseummanagementapp.Show3DModelScreen.obj.ObjModel;
 import vn.com.lacviet.lacviethpsmuseummanagementapp.Show3DModelScreen.ply.PlyModel;
@@ -73,6 +74,7 @@ public class Main extends AppCompatActivity {
     private ApiService mService;
     StlModel model;
     String decodeString;
+    int id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,17 +84,21 @@ public class Main extends AppCompatActivity {
 
         containerView = findViewById(R.id.container_view);
         progressBar = findViewById(R.id.model_progress_bar);
-
+        getDataFromPreviousActivity();
         loadData(savedInstanceState);
 
 
 
 
     }
-
+    private void getDataFromPreviousActivity() {
+        Bundle extras = getIntent().getExtras();
+        KeyString key = new KeyString();
+        id = extras.getInt(key.ITEM_KEY);
+    }
     private void loadData(Bundle savedInstanceState) {
         mService = ApiUtils.getSOService();
-        mService.getFile3dByID("2788").enqueue(new Callback<String>() {
+        mService.getFile3dByID(id).enqueue(new Callback<String>() {
 
             @Override
             public void onResponse(Call<String> call, retrofit2.Response<String> response) {
