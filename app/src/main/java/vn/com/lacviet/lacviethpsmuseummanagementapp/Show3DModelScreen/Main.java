@@ -17,8 +17,8 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
@@ -27,18 +27,20 @@ import android.widget.Toast;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import retrofit2.Call;
+import retrofit2.Callback;
 import vn.com.lacviet.lacviethpsmuseummanagementapp.R;
-import vn.com.lacviet.lacviethpsmuseummanagementapp.Show3DModelScreen.Model;
-import vn.com.lacviet.lacviethpsmuseummanagementapp.Show3DModelScreen.ModelSurfaceView;
-import vn.com.lacviet.lacviethpsmuseummanagementapp.Show3DModelScreen.ModelViewerApplication;
 import vn.com.lacviet.lacviethpsmuseummanagementapp.Show3DModelScreen.obj.ObjModel;
 import vn.com.lacviet.lacviethpsmuseummanagementapp.Show3DModelScreen.ply.PlyModel;
 import vn.com.lacviet.lacviethpsmuseummanagementapp.Show3DModelScreen.stl.StlModel;
 import vn.com.lacviet.lacviethpsmuseummanagementapp.Show3DModelScreen.util.Util;
+import vn.com.lacviet.lacviethpsmuseummanagementapp.WebAPI.Remote.ApiService;
+import vn.com.lacviet.lacviethpsmuseummanagementapp.WebAPI.Remote.ApiUtils;
 
 /*
  * Copyright 2017 Dmitry Brant. All rights reserved.
@@ -67,6 +69,10 @@ public class Main extends AppCompatActivity {
     @Nullable private ModelSurfaceView modelView;
     private ViewGroup containerView;
     private ProgressBar progressBar;
+    //web api
+    private ApiService mService;
+    StlModel model;
+    String decodeString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,16 +82,68 @@ public class Main extends AppCompatActivity {
 
         containerView = findViewById(R.id.container_view);
         progressBar = findViewById(R.id.model_progress_bar);
-        progressBar.setVisibility(View.GONE);
+
+        loadData(savedInstanceState);
 
 
 
-        if (getIntent().getData() != null && savedInstanceState == null) {
-            beginLoadModel(getIntent().getData());
-        }
-        loadSampleModel();
+
     }
 
+    private void loadData(Bundle savedInstanceState) {
+        mService = ApiUtils.getSOService();
+        mService.getFile3dByID("2788").enqueue(new Callback<String>() {
+
+            @Override
+            public void onResponse(Call<String> call, retrofit2.Response<String> response) {
+                if (response.isSuccessful()) {
+                    String temp = response.body();
+                    byte[] bytes = decodeBase64ByteArray(temp);
+                    //decodeString = decodeBase64(temp);
+                    progressBar.setVisibility(View.GONE);
+                    if(bytes != null)
+                    {
+                        try {
+                            model = new StlModel(new ByteArrayInputStream(bytes));
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        if (getIntent().getData() != null && savedInstanceState == null) {
+                            beginLoadModel(getIntent().getData());
+                        }
+                        loadSampleModel(model);
+                    }
+
+                    Log.d("AnswersPresenter", "posts loaded from API");
+                } else {
+                    int statusCode = response.code();
+                    Toast.makeText(Main.this, "Error" + statusCode + response.message(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+                Toast.makeText(Main.this, "Vui lòng kiểm tra kết nối!" , Toast.LENGTH_SHORT).show();
+                Log.d("AnswersPresenter", "error loading from API");
+            }
+        });
+    }
+    private byte[] decodeBase64ByteArray(String coded){
+        byte[] valueDecoded= new byte[0];
+        try {
+            valueDecoded = Base64.decode(coded.getBytes("UTF-8"), Base64.DEFAULT);
+        } catch (UnsupportedEncodingException e) {
+        }
+        return valueDecoded;
+    }
+    private String decodeBase64(String coded){
+        byte[] valueDecoded= new byte[0];
+        try {
+            valueDecoded = Base64.decode(coded.getBytes("UTF-8"), Base64.DEFAULT);
+        } catch (UnsupportedEncodingException e) {
+        }
+        return new String(valueDecoded);
+    }
     @Override
     protected void onStart() {
         super.onStart();
@@ -158,7 +216,8 @@ public class Main extends AppCompatActivity {
 
     private void beginLoadModel(@NonNull Uri uri) {
         progressBar.setVisibility(View.VISIBLE);
-        new ModelLoadTask().execute(uri);
+        //new ModelLoadTask().execute(uri);
+        setCurrentModel(model);
     }
 
     private void createNewModelView(@Nullable Model model) {
@@ -230,6 +289,7 @@ public class Main extends AppCompatActivity {
             } else {
                 Toast.makeText(getApplicationContext(), R.string.open_model_error, Toast.LENGTH_SHORT).show();
                 progressBar.setVisibility(View.GONE);
+
             }
         }
 
@@ -255,16 +315,16 @@ public class Main extends AppCompatActivity {
     private void setCurrentModel(@NonNull Model model) {
         createNewModelView(model);
         Toast.makeText(getApplicationContext(), R.string.open_model_success, Toast.LENGTH_SHORT).show();
-        setTitle(model.getTitle());
+        //setTitle(model.getTitle());
         progressBar.setVisibility(View.GONE);
     }
 
 
-    private void loadSampleModel() {
+    private void loadSampleModel(StlModel model) {
         try {
             InputStream stream = getApplicationContext().getAssets()
                     .open(SAMPLE_MODELS[sampleModelIndex++ % SAMPLE_MODELS.length]);
-            setCurrentModel(new StlModel(stream));
+            setCurrentModel(model);
             stream.close();
         } catch (IOException e) {
             e.printStackTrace();

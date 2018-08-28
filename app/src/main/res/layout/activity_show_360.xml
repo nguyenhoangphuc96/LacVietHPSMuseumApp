@@ -53,6 +53,15 @@
             android:visibility="visible"
             android:indeterminateTint="@color/colorBlueLight"
             android:indeterminateTintMode="src_in"/>
+        <TextView
+            android:id="@+id/tvNoResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hiện vật hiện tại không có hình ảnh 360 độ"
+            android:layout_centerInParent="true"
+            android:textAppearance="@style/TextSearchBox"
+            android:textColor="@color/colorGrayforText"
+            android:visibility="gone"/>
     </RelativeLayout>
 
 

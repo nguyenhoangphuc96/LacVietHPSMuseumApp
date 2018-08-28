@@ -6,7 +6,7 @@
     android:id="@+id/container_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBackgroundToolbarBlue"
+    android:background="@color/colorWhite"
     tools:context="vn.com.lacviet.lacviethpsmuseummanagementapp.Show3DModelScreen.Main">
     <ProgressBar
         android:id="@+id/model_progress_bar"

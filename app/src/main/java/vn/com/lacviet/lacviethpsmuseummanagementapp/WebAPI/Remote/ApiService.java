@@ -67,5 +67,11 @@ public interface ApiService {
     @GET("Page/GetById")
     Call<String> getPage(@Query("id") String id);
 
+    @GET("exhibit/getfile")
+    Call<String> getFile3dByID(@Query("id") String id);
+    @GET("Exhibit/GetImage360")
+    Call<ImageByIDResponse> getExhibitImage360ById(@Query("id") int id,
+                                     @Query("thumbnail") boolean thumbnail);
+
 
 }

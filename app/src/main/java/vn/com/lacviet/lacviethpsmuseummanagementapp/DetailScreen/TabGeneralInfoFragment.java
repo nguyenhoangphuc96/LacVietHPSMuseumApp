@@ -223,7 +223,7 @@ public class TabGeneralInfoFragment extends Fragment {
         btn360.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startShow360Activity();
+                startShow360Activity(id);
             }
         });
         btnPanorama.setOnClickListener(new View.OnClickListener() {
@@ -246,10 +246,10 @@ public class TabGeneralInfoFragment extends Fragment {
 //        intent.putExtra(key.ITEM_KEY, position);
         startActivity(intent);
     }
-    private void startShow360Activity() {
+    private void startShow360Activity(int id) {
         Intent intent = new Intent(getActivity(), Show360Activity.class);
-//        KeyString key = new KeyString();
-//        intent.putExtra(key.ITEM_KEY, position);
+        KeyString key = new KeyString();
+        intent.putExtra(key.ITEM_KEY, this.id);
         startActivity(intent);
     }
 
