@@ -2,13 +2,17 @@ package vn.com.lacviet.lacviethpsmuseummanagementapp.Show3DModelScreen;
 
 import android.Manifest;
 import android.content.ContentResolver;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.database.Cursor;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -21,7 +25,9 @@ import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.ByteArrayInputStream;
@@ -63,11 +69,12 @@ public class Main extends AppCompatActivity {
     private static final int OPEN_DOCUMENT_REQUEST = 101;
 
     private static final String[] SAMPLE_MODELS
-            = new String[] { "go_hoa_20mb.stl" };
+            = new String[]{"go_hoa_20mb.stl"};
     private static int sampleModelIndex;
 
     private ModelViewerApplication app;
-    @Nullable private ModelSurfaceView modelView;
+    @Nullable
+    private ModelSurfaceView modelView;
     private ViewGroup containerView;
     private ProgressBar progressBar;
     //web api
@@ -75,6 +82,12 @@ public class Main extends AppCompatActivity {
     StlModel model;
     String decodeString;
     int id;
+    //
+    int pStatus = 0;
+    private Handler handler = new Handler();
+    TextView tv;
+    ProgressBar mProgress;
+    ImageView imvProgress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,16 +98,57 @@ public class Main extends AppCompatActivity {
         containerView = findViewById(R.id.container_view);
         progressBar = findViewById(R.id.model_progress_bar);
         getDataFromPreviousActivity();
+        showProcessBar();
         loadData(savedInstanceState);
 
 
-
-
     }
+
     private void getDataFromPreviousActivity() {
         Bundle extras = getIntent().getExtras();
         KeyString key = new KeyString();
         id = extras.getInt(key.ITEM_KEY);
+    }
+    private void showProcessBar() {
+        Resources res = getResources();
+        Drawable drawable = res.getDrawable(R.drawable.circular);
+        mProgress = (ProgressBar) findViewById(R.id.circularProgressbar);
+        mProgress.setProgress(0);   // Main Progress
+        mProgress.setSecondaryProgress(100); // Secondary Progress
+        mProgress.setMax(100); // Maximum Progress
+        mProgress.setProgressDrawable(drawable);
+
+
+        tv = (TextView) findViewById(R.id.tv);
+        imvProgress = findViewById(R.id.imvcircularProgress);
+        new Thread(new Runnable() {
+
+            @Override
+            public void run() {
+                // TODO Auto-generated method stub
+                while (pStatus < 100) {
+                    pStatus += 1;
+
+                    handler.post(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            // TODO Auto-generated method stub
+                            mProgress.setProgress(pStatus);
+                            tv.setText(pStatus + "%");
+
+                        }
+                    });
+                    try {
+                        // Sleep for 200 milliseconds.
+                        // Just to display the progress slowly
+                        Thread.sleep(300); //thread will take approx 3 seconds to finish
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }).start();
     }
     private void loadData(Bundle savedInstanceState) {
         mService = ApiUtils.getSOService();
@@ -107,17 +161,26 @@ public class Main extends AppCompatActivity {
                     byte[] bytes = decodeBase64ByteArray(temp);
                     //decodeString = decodeBase64(temp);
                     progressBar.setVisibility(View.GONE);
-                    if(bytes != null)
-                    {
+                    //
+                    mProgress.setVisibility(View.GONE);
+                    tv.setVisibility(View.GONE);
+                    imvProgress.setVisibility(View.GONE);
+                    //
+                    if (bytes.length != 0) {
                         try {
                             model = new StlModel(new ByteArrayInputStream(bytes));
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
+
                         if (getIntent().getData() != null && savedInstanceState == null) {
                             beginLoadModel(getIntent().getData());
                         }
                         loadSampleModel(model);
+
+                    }
+                    else {
+                        showDialogNoResult();
                     }
 
                     Log.d("AnswersPresenter", "posts loaded from API");
@@ -129,27 +192,30 @@ public class Main extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<String> call, Throwable t) {
-                Toast.makeText(Main.this, "Vui lòng kiểm tra kết nối!" , Toast.LENGTH_SHORT).show();
+                Toast.makeText(Main.this, "Vui lòng kiểm tra kết nối!", Toast.LENGTH_SHORT).show();
                 Log.d("AnswersPresenter", "error loading from API");
             }
         });
     }
-    private byte[] decodeBase64ByteArray(String coded){
-        byte[] valueDecoded= new byte[0];
+
+    private byte[] decodeBase64ByteArray(String coded) {
+        byte[] valueDecoded = new byte[0];
         try {
             valueDecoded = Base64.decode(coded.getBytes("UTF-8"), Base64.DEFAULT);
         } catch (UnsupportedEncodingException e) {
         }
         return valueDecoded;
     }
-    private String decodeBase64(String coded){
-        byte[] valueDecoded= new byte[0];
+
+    private String decodeBase64(String coded) {
+        byte[] valueDecoded = new byte[0];
         try {
             valueDecoded = Base64.decode(coded.getBytes("UTF-8"), Base64.DEFAULT);
         } catch (UnsupportedEncodingException e) {
         }
         return new String(valueDecoded);
     }
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -174,7 +240,6 @@ public class Main extends AppCompatActivity {
             modelView.onResume();
         }
     }
-
 
 
     @Override
@@ -223,7 +288,7 @@ public class Main extends AppCompatActivity {
     private void beginLoadModel(@NonNull Uri uri) {
         progressBar.setVisibility(View.VISIBLE);
         //new ModelLoadTask().execute(uri);
-        setCurrentModel(model);
+        //setCurrentModel(model);
     }
 
     private void createNewModelView(@Nullable Model model) {
@@ -323,6 +388,11 @@ public class Main extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), R.string.open_model_success, Toast.LENGTH_SHORT).show();
         //setTitle(model.getTitle());
         progressBar.setVisibility(View.GONE);
+        //
+        mProgress.setVisibility(View.GONE);
+        tv.setVisibility(View.GONE);
+        imvProgress.setVisibility(View.GONE);
+        //
     }
 
 
@@ -337,11 +407,15 @@ public class Main extends AppCompatActivity {
         }
     }
 
-    private void showAboutDialog() {
+    private void showDialogNoResult() {
         new AlertDialog.Builder(this)
-                .setTitle(R.string.app_name)
-                .setMessage(R.string.about_text)
-                .setPositiveButton(android.R.string.ok, null)
+                .setMessage("Hiện vật không có định dạng 3D!")
+                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+                })
                 .show();
     }
 }

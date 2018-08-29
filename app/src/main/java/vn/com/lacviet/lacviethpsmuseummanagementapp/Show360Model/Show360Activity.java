@@ -1,8 +1,11 @@
 package vn.com.lacviet.lacviethpsmuseummanagementapp.Show360Model;
 
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
@@ -47,7 +50,12 @@ public class Show360Activity extends AppCompatActivity {
     //
     List<String> lstImages;
     int id;
-
+    //
+    int pStatus = 0;
+    private Handler handler = new Handler();
+    TextView tv;
+    ProgressBar mProgress;
+    ImageView imvProgress;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -55,7 +63,9 @@ public class Show360Activity extends AppCompatActivity {
         setContentView(R.layout.activity_show_360);
         addControl();
         actionBar();
+        pbShowImage.setVisibility(View.GONE);
         getDataFromPreviousActivity();
+        showProcessBar();
         loadDataList(id);
         //startAnimation();
 
@@ -70,7 +80,7 @@ public class Show360Activity extends AppCompatActivity {
 
     private void loadDataList(int id) {
         mService = ApiUtils.getSOService();
-        mService.getExhibitImage360ById(id,true).enqueue(new Callback<ImageByIDResponse>() {
+        mService.getExhibitImage360ById(id, true).enqueue(new Callback<ImageByIDResponse>() {
 
             @Override
             public void onResponse(Call<ImageByIDResponse> call, Response<ImageByIDResponse> response) {
@@ -78,11 +88,20 @@ public class Show360Activity extends AppCompatActivity {
                     lstImages = new ArrayList<>();
                     lstImages = response.body().getExhibitImages();
                     //
-                    if(lstImages != null) {
+                    if (lstImages != null) {
+                        //
+                        mProgress.setVisibility(View.GONE);
+                        tv.setVisibility(View.GONE);
+                        imvProgress.setVisibility(View.GONE);
+                        //
                         pbShowImage.setVisibility(View.GONE);
                         show360();
-                    }
-                    else {
+                    } else {
+                        //
+                        mProgress.setVisibility(View.GONE);
+                        tv.setVisibility(View.GONE);
+                        imvProgress.setVisibility(View.GONE);
+                        //
                         pbShowImage.setVisibility(View.GONE);
                         tvNoResult.setVisibility(View.VISIBLE);
                     }
@@ -95,6 +114,11 @@ public class Show360Activity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<ImageByIDResponse> call, Throwable t) {
+                //
+                mProgress.setVisibility(View.GONE);
+                tv.setVisibility(View.GONE);
+                imvProgress.setVisibility(View.GONE);
+                //
                 pbShowImage.setVisibility(View.GONE);
                 tvNoResult.setVisibility(View.VISIBLE);
                 //Toast.makeText(Show360Activity.this, "Vui lòng kiểm tra kết nối!" , Toast.LENGTH_SHORT).show();
@@ -102,6 +126,49 @@ public class Show360Activity extends AppCompatActivity {
             }
         });
     }
+
+    private void showProcessBar() {
+        Resources res = getResources();
+        Drawable drawable = res.getDrawable(R.drawable.circular);
+        mProgress = (ProgressBar) findViewById(R.id.circularProgressbar);
+        mProgress.setProgress(0);   // Main Progress
+        mProgress.setSecondaryProgress(100); // Secondary Progress
+        mProgress.setMax(100); // Maximum Progress
+        mProgress.setProgressDrawable(drawable);
+
+
+        tv = (TextView) findViewById(R.id.tv);
+        imvProgress = findViewById(R.id.imvcircularProgress);
+        new Thread(new Runnable() {
+
+            @Override
+            public void run() {
+                // TODO Auto-generated method stub
+                while (pStatus < 100) {
+                    pStatus += 1;
+
+                    handler.post(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            // TODO Auto-generated method stub
+                            mProgress.setProgress(pStatus);
+                            tv.setText(pStatus + "%");
+
+                        }
+                    });
+                    try {
+                        // Sleep for 200 milliseconds.
+                        // Just to display the progress slowly
+                        Thread.sleep(100); //thread will take approx 3 seconds to finish
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }).start();
+    }
+
     private void showImage(String imageString) {
         if (imageString != "") {
             Bitmap bmp = Util.StringToBitMap(imageString);
@@ -111,14 +178,16 @@ public class Show360Activity extends AppCompatActivity {
         }
 
     }
-    int i=0;
+
+    int i = 0;
+
     private void show360() {
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             public void run() {
                 showImage(lstImages.get(0));
                 //imageView.setImageResource(lstImages.get(0));
-                if(i >=lstImages.size()) {
+                if (i >= lstImages.size()) {
                     i = 0;
                 }
                 showImage(lstImages.get(i));
@@ -141,8 +210,8 @@ public class Show360Activity extends AppCompatActivity {
         //
 
 
-
     }
+
     private void actionBar() {
         setSupportActionBar(toolbar);
         tvTitleToolbar.setText(toolbar.getTitle());
@@ -157,13 +226,14 @@ public class Show360Activity extends AppCompatActivity {
             }
         });
     }
+
     class Starter implements Runnable {
         public void run() {
             animation.start();
         }
     }
 
-    private void startAnimation(){
+    private void startAnimation() {
         animation = new AnimationDrawable();
         animation.addFrame(getResources().getDrawable(R.drawable.img_background_config), 300);
         animation.addFrame(getResources().getDrawable(R.drawable.img_bg_cauhinh), 300);
